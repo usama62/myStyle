@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_style/splash.dart';
-
-import 'Login.dart';
-import 'selectLang.dart';
+import 'aboutUs.dart';
 
 void main() {
   runApp(const MyApp());
@@ -51,115 +49,89 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffffffff),
-      body: Stack(
-        children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset('assets/images/landing_img.png'),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 100.0),
-                child: Text(
-                  "We Believe We can Change the world together…",
-                  style: TextStyle(
-                      fontSize: 22.0,
-                      color: Color(0xff38385E),
-                      fontWeight: FontWeight.w600,
-                      fontFamily: "PoppinsSemiBold"),
-                  textAlign: TextAlign.center,
-                ),
+        body: Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage('assets/images/doodle.png'), fit: BoxFit.cover),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 150),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Image.asset('assets/images/logo.png'),
+            const Padding(
+              padding: EdgeInsets.fromLTRB(0.0, 50.0, 0.0, 50.0),
+              child: Text(
+                "Select Language",
+                style: TextStyle(
+                    fontFamily: "Product Sans",
+                    color: Color(0xff000000),
+                    fontSize: 28.0,
+                    fontWeight: FontWeight.bold),
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 70.0),
-                child: Text(
-                  "We care about every small details to sastisfy your needs when you use our service",
-                  style: TextStyle(
-                      fontSize: 16.0,
-                      color: Color(0xff78789D),
-                      fontWeight: FontWeight.w400,
-                      fontFamily: "PoppinsSemiBold"),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-              Image.asset('assets/images/Pavigation.png'),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 70.0),
-                child: Text(
-                  "Welcome, let’s get started!!!!!",
-                  style: TextStyle(
-                      fontSize: 16.0,
-                      color: Color(0xff373737),
-                      fontWeight: FontWeight.w600,
-                      fontFamily: "PoppinsSemiBold"),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ],
-          ),
-          Positioned(
-            bottom: 0,
-            left: 30,
-            child: Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: TextButton(
-                    style: TextButton.styleFrom(
-                        padding:
-                            const EdgeInsets.fromLTRB(50.0, 15.0, 50.0, 15.0),
-                        backgroundColor: const Color(0xFFdddddd),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        )),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SelectLang()),
-                      );
-                    },
-                    child: const Text(
-                      'Log in',
-                      style: TextStyle(
-                          fontSize: 14.0,
-                          color: Color(0xFFEE8823),
-                          fontWeight: FontWeight.w600,
-                          fontFamily: "PoppinsSemiBold"),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: TextButton(
-                    style: TextButton.styleFrom(
-                        padding:
-                            const EdgeInsets.fromLTRB(50.0, 15.0, 50.0, 15.0),
-                        backgroundColor: const Color(0xFF36BDA4),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        )),
-                    onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) => const Signup()));
-                    },
-                    child: const Text(
-                      'Sign up',
-                      style: TextStyle(
-                          fontSize: 14.0,
-                          fontWeight: FontWeight.w600,
-                          fontFamily: "PoppinsSemiBold",
-                          color: Color(0xFFFFFFFF)),
-                    ),
-                  ),
-                ),
-              ],
             ),
-          ),
-        ],
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                    padding:
+                        const EdgeInsets.fromLTRB(131.5, 14.0, 131.5, 14.0),
+                    backgroundColor: const Color(0xFFE60D21),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25.0),
+                    )),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Aboutus()),
+                  );
+                },
+                child: const Center(
+                  child: Text(
+                    "English",
+                    style: TextStyle(
+                        fontFamily: "Product Sans",
+                        color: Color(0xffffffff),
+                        fontSize: 17.0,
+                        fontWeight: FontWeight.normal),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                    side:
+                        const BorderSide(width: 3.0, color: Color(0xFFE60D21)),
+                    padding:
+                        const EdgeInsets.fromLTRB(131.5, 14.0, 131.5, 14.0),
+                    // backgroundColor: const Color(0xFFE60D21),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25.0),
+                    )),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Aboutus()),
+                  );
+                },
+                child: const Center(
+                  child: Text(
+                    "Spanish",
+                    style: TextStyle(
+                        fontFamily: "Product Sans",
+                        color: Color(0xffE60D21),
+                        fontSize: 17.0,
+                        fontWeight: FontWeight.normal),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ));
   }
 }

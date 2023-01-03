@@ -14,7 +14,7 @@ class _SplashState extends State<Splash> {
   void initState() {
     super.initState();
 
-    // _navigatetohome();
+    _navigatetohome();
   }
 
   _navigatetohome() async {
@@ -34,6 +34,11 @@ class _SplashState extends State<Splash> {
       backgroundColor: const Color(0xFFE60D21),
       body: Container(
         alignment: Alignment.center,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/images/splash-bg.png'),
+              fit: BoxFit.cover),
+        ),
         child: Image.asset('assets/images/logo-white.png'),
       ),
     );
