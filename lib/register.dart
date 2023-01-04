@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 
 import 'entryOption.dart';
-import 'loginViaEmail.dart';
 
-class Login extends StatefulWidget {
-  const Login({
+class Register extends StatefulWidget {
+  const Register({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<Login> createState() => _LoginState();
+  State<Register> createState() => _RegisterState();
 }
 
-class _LoginState extends State<Login> {
+class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +30,7 @@ class _LoginState extends State<Login> {
               const Padding(
                 padding: EdgeInsets.fromLTRB(0.0, 50.0, 0.0, 5.0),
                 child: Text(
-                  "Sign In Here",
+                  "Register Here",
                   style: TextStyle(
                       fontFamily: "Product Sans",
                       color: Color(0xff000000),
@@ -50,11 +49,10 @@ class _LoginState extends State<Login> {
                         borderRadius: BorderRadius.circular(25.0),
                       )),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const LoginViaEmail()),
-                    );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(builder: (context) => const Aboutus()),
+                    // );
                   },
                   child: Row(children: [
                     Padding(
@@ -62,7 +60,7 @@ class _LoginState extends State<Login> {
                       child: Image.asset("assets/images/email-icon.png"),
                     ),
                     const Text(
-                      "Sign In via email",
+                      "Register via email",
                       style: TextStyle(
                           fontFamily: "Product Sans",
                           color: Color(0xff000000),
@@ -85,8 +83,7 @@ class _LoginState extends State<Login> {
                   onPressed: () {
                     // Navigator.push(
                     //   context,
-                    //   MaterialPageRoute(
-                    //       builder: (context) => const LoginViaEmail()),
+                    //   MaterialPageRoute(builder: (context) => const Aboutus()),
                     // );
                   },
                   child: Row(children: [
@@ -95,7 +92,7 @@ class _LoginState extends State<Login> {
                       child: Image.asset("assets/images/mobile.png"),
                     ),
                     const Text(
-                      "Sign In via number",
+                      "Register via number",
                       style: TextStyle(
                           fontFamily: "Product Sans",
                           color: Color(0xff000000),
@@ -127,7 +124,7 @@ class _LoginState extends State<Login> {
                       child: Image.asset("assets/images/facebook.png"),
                     ),
                     const Text(
-                      "Sign In via Facebook",
+                      "Register via Facebook",
                       style: TextStyle(
                           fontFamily: "Product Sans",
                           color: Color(0xff000000),

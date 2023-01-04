@@ -67,6 +67,9 @@ flutter:
     - assets/images/logo.png
     - assets/images/doodle.png
     - assets/images/splash-bg.png
+    - assets/images/email-icon.png
+    - assets/images/facebook.png
+    - assets/images/mobile.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

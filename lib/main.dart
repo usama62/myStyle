@@ -104,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: TextButton(
                 style: TextButton.styleFrom(
                     side:
-                        const BorderSide(width: 3.0, color: Color(0xFFE60D21)),
+                        const BorderSide(width: 1.0, color: Color(0xFFE60D21)),
                     padding:
                         const EdgeInsets.fromLTRB(131.5, 14.0, 131.5, 14.0),
                     // backgroundColor: const Color(0xFFE60D21),

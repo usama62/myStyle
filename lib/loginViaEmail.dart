@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 
-import 'entryOption.dart';
-import 'loginViaEmail.dart';
-
-class Login extends StatefulWidget {
-  const Login({
+class LoginViaEmail extends StatefulWidget {
+  const LoginViaEmail({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<Login> createState() => _LoginState();
+  State<LoginViaEmail> createState() => _LoginViaEmailState();
 }
 
-class _LoginState extends State<Login> {
+class _LoginViaEmailState extends State<LoginViaEmail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +28,7 @@ class _LoginState extends State<Login> {
               const Padding(
                 padding: EdgeInsets.fromLTRB(0.0, 50.0, 0.0, 5.0),
                 child: Text(
-                  "Sign In Here",
+                  "Sign in via email",
                   style: TextStyle(
                       fontFamily: "Product Sans",
                       color: Color(0xff000000),
@@ -39,37 +36,26 @@ class _LoginState extends State<Login> {
                       fontWeight: FontWeight.bold),
                 ),
               ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-                child: TextButton(
-                  style: TextButton.styleFrom(
-                      side: const BorderSide(
-                          width: 1.0, color: Color(0xFFE60D21)),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25.0),
-                      )),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const LoginViaEmail()),
-                    );
-                  },
-                  child: Row(children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(80, 5, 10, 5),
-                      child: Image.asset("assets/images/email-icon.png"),
-                    ),
-                    const Text(
-                      "Sign In via email",
-                      style: TextStyle(
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                child: TextField(
+                  decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(30)),
+                          borderSide:
+                              BorderSide(width: 1.0, color: Color(0xFFE60D21))),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(30)),
+                          borderSide:
+                              BorderSide(width: 1.0, color: Color(0xFFE60D21))),
+                      labelText: 'Enter Email',
+                      labelStyle: TextStyle(
                           fontFamily: "Product Sans",
                           color: Color(0xff000000),
                           fontSize: 17.0,
-                          fontWeight: FontWeight.normal),
-                    ),
-                  ]),
+                          fontWeight: FontWeight.w600),
+                      suffixStyle: TextStyle(color: Colors.black)),
+                  keyboardType: TextInputType.emailAddress,
                 ),
               ),
               Padding(
@@ -85,8 +71,7 @@ class _LoginState extends State<Login> {
                   onPressed: () {
                     // Navigator.push(
                     //   context,
-                    //   MaterialPageRoute(
-                    //       builder: (context) => const LoginViaEmail()),
+                    //   MaterialPageRoute(builder: (context) => const Aboutus()),
                     // );
                   },
                   child: Row(children: [
