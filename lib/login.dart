@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'entryOption.dart';
 import 'loginViaEmail.dart';
+import 'loginViaNumber.dart';
 
 class Login extends StatefulWidget {
   const Login({
@@ -83,11 +84,11 @@ class _LoginState extends State<Login> {
                         borderRadius: BorderRadius.circular(25.0),
                       )),
                   onPressed: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //       builder: (context) => const LoginViaEmail()),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const loginViaNumber()),
+                    );
                   },
                   child: Row(children: [
                     Padding(
@@ -116,10 +117,11 @@ class _LoginState extends State<Login> {
                         borderRadius: BorderRadius.circular(25.0),
                       )),
                   onPressed: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => const Aboutus()),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const loginViaNumber()),
+                    );
                   },
                   child: Row(children: [
                     Padding(

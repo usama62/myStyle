@@ -41,7 +41,7 @@ class _AboutusState extends State<Aboutus> {
               const Padding(
                 padding: EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 50.0),
                 child: Text(
-                    "Beauty app is the ultimate social media app where women have the freedom to express their beauty sharing and uploading photos, videos, posting hair style, makeup style and even their simplicity without makeup BEAUTY alowed you to interact around the world share around the world to posting around the world something that make you feel 'special YOUR NAILHAIR",
+                    "Women and men express their beauty in different ways and have managed to capture the attention of humans being, when it comes to nails, hair style haircuts and make up style they are the best to express.My Style App is the ultimate social media app where women and men have the freedom to express the beauty, sharing and uploading photos, videos, hair style haircuts make up style and even their simplicity without make up. My Style platform aloud you to interact around the world and sharing around the world same thing that makes you feel great. My Style app is yours to show your talent, passion and more.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         height: 1.5,

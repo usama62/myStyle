@@ -33,6 +33,7 @@ dependencies:
     sdk: flutter
   
   animated_splash_screen: ^1.3.0
+  pinput: ^2.2.21
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -70,6 +71,7 @@ flutter:
     - assets/images/email-icon.png
     - assets/images/facebook.png
     - assets/images/mobile.png
+    - assets/images/password.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
