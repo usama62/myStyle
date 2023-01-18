@@ -1,17 +1,17 @@
-import 'package:flutter/material.dart';
 import 'login.dart';
 import 'register.dart';
+import 'package:flutter/material.dart';
 
-class entryOption extends StatefulWidget {
-  const entryOption({
+class EntryOption extends StatefulWidget {
+  const EntryOption({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<entryOption> createState() => _entryOptionState();
+  State<EntryOption> createState() => _EntryOptionState();
 }
 
-class _entryOptionState extends State<entryOption> {
+class _EntryOptionState extends State<EntryOption> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'entryOption.dart';
+import 'register_via_email.dart';
 
 class Register extends StatefulWidget {
   const Register({
@@ -49,10 +48,11 @@ class _RegisterState extends State<Register> {
                         borderRadius: BorderRadius.circular(25.0),
                       )),
                   onPressed: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => const Aboutus()),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const RegisterViaEmail()),
+                    );
                   },
                   child: Row(children: [
                     Padding(
@@ -70,38 +70,38 @@ class _RegisterState extends State<Register> {
                   ]),
                 ),
               ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-                child: TextButton(
-                  style: TextButton.styleFrom(
-                      side: const BorderSide(
-                          width: 1.0, color: Color(0xFFE60D21)),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25.0),
-                      )),
-                  onPressed: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => const Aboutus()),
-                    // );
-                  },
-                  child: Row(children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(80, 5, 10, 5),
-                      child: Image.asset("assets/images/mobile.png"),
-                    ),
-                    const Text(
-                      "Register via number",
-                      style: TextStyle(
-                          fontFamily: "Product Sans",
-                          color: Color(0xff000000),
-                          fontSize: 17.0,
-                          fontWeight: FontWeight.normal),
-                    ),
-                  ]),
-                ),
-              ),
+              // Padding(
+              //   padding:
+              //       const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+              //   child: TextButton(
+              //     style: TextButton.styleFrom(
+              //         side: const BorderSide(
+              //             width: 1.0, color: Color(0xFFE60D21)),
+              //         shape: RoundedRectangleBorder(
+              //           borderRadius: BorderRadius.circular(25.0),
+              //         )),
+              //     onPressed: () {
+              //       // Navigator.push(
+              //       //   context,
+              //       //   MaterialPageRoute(builder: (context) => const Aboutus()),
+              //       // );
+              //     },
+              //     child: Row(children: [
+              //       Padding(
+              //         padding: const EdgeInsets.fromLTRB(80, 5, 10, 5),
+              //         child: Image.asset("assets/images/mobile.png"),
+              //       ),
+              //       const Text(
+              //         "Register via number",
+              //         style: TextStyle(
+              //             fontFamily: "Product Sans",
+              //             color: Color(0xff000000),
+              //             fontSize: 17.0,
+              //             fontWeight: FontWeight.normal),
+              //       ),
+              //     ]),
+              //   ),
+              // ),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 25, vertical: 10),

@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:pinput/pinput.dart';
 
-class VerificationCode extends StatefulWidget {
-  const VerificationCode({
+class LoginViaNumber extends StatefulWidget {
+  const LoginViaNumber({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<VerificationCode> createState() => _VerificationCodeState();
+  State<LoginViaNumber> createState() => _LoginViaNumberState();
 }
 
-class _VerificationCodeState extends State<VerificationCode> {
+class _LoginViaNumberState extends State<LoginViaNumber> {
   TextEditingController _emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-
     return Scaffold(
         body: Stack(children: [
       Container(
@@ -33,7 +30,7 @@ class _VerificationCodeState extends State<VerificationCode> {
               const Padding(
                 padding: EdgeInsets.fromLTRB(0.0, 50.0, 0.0, 20.0),
                 child: Text(
-                  "Enter Verification Code",
+                  "Sign in via number",
                   style: TextStyle(
                       fontFamily: "Product Sans",
                       color: Color(0xff000000),
@@ -43,48 +40,45 @@ class _VerificationCodeState extends State<VerificationCode> {
               ),
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
-                child: SizedBox(
-                  width: width,
-                  child: Pinput(
-                    length: 6,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    defaultPinTheme: PinTheme(
-                      height: 60.0,
-                      width: 60.0,
-                      textStyle: const TextStyle(
-                        fontSize: 24.0,
-                        color: Color(0xffE60D21),
-                        fontWeight: FontWeight.w700,
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(25.0),
+                      topRight: Radius.circular(25.0),
+                      bottomLeft: Radius.circular(25.0),
+                      bottomRight: Radius.circular(25.0),
+                    ),
+                    border: Border.all(
+                      color: const Color(0xFFE60D21),
+                      width: 1,
+                    ),
+                  ),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
+                        child: Image.asset("assets/images/mobile.png"),
                       ),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.white,
-                        border: Border.all(
-                          color: const Color(0xffE60D21),
-                          width: 1.0,
+                      Flexible(
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                          child: TextField(
+                            decoration: const InputDecoration(
+                              hintText: 'Enter Number',
+                              hintStyle: TextStyle(
+                                  fontFamily: "Product Sans",
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 17.0,
+                                  color: Color(0xff000000)),
+                              border: InputBorder.none,
+                            ),
+                            keyboardType: TextInputType.emailAddress,
+                            controller: _emailController,
+                          ),
                         ),
                       ),
-                    ),
-                    focusedPinTheme: PinTheme(
-                      height: 60.0,
-                      width: 60.0,
-                      textStyle: const TextStyle(
-                        fontFamily: "Product Sans",
-                        fontSize: 24.0,
-                        color: Color(0xffE60D21),
-                        fontWeight: FontWeight.w700,
-                      ),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: const Color(0xffE60D21),
-                        border: Border.all(
-                          color: const Color(0xffE60D21),
-                          width: 1.0,
-                        ),
-                      ),
-                    ),
+                    ],
                   ),
                 ),
               ),
@@ -107,7 +101,7 @@ class _VerificationCodeState extends State<VerificationCode> {
                   },
                   child: const Center(
                     child: Text(
-                      "Confirm",
+                      "Sign In",
                       style: TextStyle(
                           fontFamily: "Product Sans",
                           color: Color(0xffffffff),

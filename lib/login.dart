@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'entryOption.dart';
-import 'loginViaEmail.dart';
-import 'loginViaNumber.dart';
+import 'login_via_email.dart';
+import 'login_via_number.dart';
 
 class Login extends StatefulWidget {
   const Login({
@@ -87,7 +85,7 @@ class _LoginState extends State<Login> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const loginViaNumber()),
+                          builder: (context) => const LoginViaNumber()),
                     );
                   },
                   child: Row(children: [
@@ -120,7 +118,7 @@ class _LoginState extends State<Login> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const loginViaNumber()),
+                          builder: (context) => const LoginViaNumber()),
                     );
                   },
                   child: Row(children: [

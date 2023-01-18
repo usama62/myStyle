@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'entryOption.dart';
+import 'entry_option.dart';
 
 class Aboutus extends StatefulWidget {
   const Aboutus({
@@ -22,7 +21,7 @@ class _AboutusState extends State<Aboutus> {
               image: AssetImage('assets/images/doodle.png'), fit: BoxFit.cover),
         ),
         child: Padding(
-          padding: const EdgeInsets.only(top: 150),
+          padding: const EdgeInsets.only(top: 100),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -39,9 +38,33 @@ class _AboutusState extends State<Aboutus> {
                 ),
               ),
               const Padding(
-                padding: EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 50.0),
+                padding: EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 10.0),
                 child: Text(
-                    "Women and men express their beauty in different ways and have managed to capture the attention of humans being, when it comes to nails, hair style haircuts and make up style they are the best to express.My Style App is the ultimate social media app where women and men have the freedom to express the beauty, sharing and uploading photos, videos, hair style haircuts make up style and even their simplicity without make up. My Style platform aloud you to interact around the world and sharing around the world same thing that makes you feel great. My Style app is yours to show your talent, passion and more.",
+                    "Women and men express their beauty in different ways and have managed to capture the attention of humans being, when it comes to nails, hair style haircuts and make up style they are the best to express.",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        height: 1.5,
+                        fontFamily: "Product Sans",
+                        color: Color(0xff383338),
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.bold)),
+              ),
+              const Padding(
+                padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                child: Text(
+                    "My Style App is the ultimate social media app where women and men have the freedom to express the beauty, sharing and uploading photos, videos, hair style haircuts make up style and even their simplicity without make up.",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        height: 1.5,
+                        fontFamily: "Product Sans",
+                        color: Color(0xff383338),
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.bold)),
+              ),
+              const Padding(
+                padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 50.0),
+                child: Text(
+                    "My Style platform aloud you to interact around the world and sharing around the world same thing that makes you feel great. My Style app is yours to show your talent, passion and more.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         height: 1.5,
@@ -64,7 +87,7 @@ class _AboutusState extends State<Aboutus> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const entryOption()),
+                          builder: (context) => const EntryOption()),
                     );
                   },
                   child: const Center(

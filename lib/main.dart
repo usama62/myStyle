@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_style/splash.dart';
-import 'aboutUs.dart';
+import 'about_us.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         primaryColor: const Color(0xFFE60D21),
       ),
       // home: const MyHomePage(title: ''),
-      home: Splash(),
+      home: const Splash(),
     );
   }
 }
