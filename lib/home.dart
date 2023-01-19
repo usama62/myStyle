@@ -33,7 +33,7 @@ class _HomeState extends State<Home> {
             onPressed: () => Navigator.of(context).pop(),
           ),
           backgroundColor: const Color(0xFF36BDA4),
-          title: const Text('Create Profile'),
+          title: const Text('This is Home'),
           elevation: 0,
         ),
         body: SingleChildScrollView(
