@@ -1,5 +1,12 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:localstorage/localstorage.dart';
+import 'package:my_style/utils/helpers/validation_helper.dart';
+import 'constants/Global.dart';
+import 'custom/custom_snackbar.dart';
 import 'forgot_pass.dart';
+import 'package:http/http.dart' as http;
+import 'home.dart';
 
 class LoginViaEmail extends StatefulWidget {
   const LoginViaEmail({
@@ -11,7 +18,66 @@ class LoginViaEmail extends StatefulWidget {
 }
 
 class _LoginViaEmailState extends State<LoginViaEmail> {
+  final storage = LocalStorage('user_data');
+  TextEditingController _usernameController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
+  TextEditingController _phoneNoController = TextEditingController();
+  TextEditingController _passController = TextEditingController();
+  TextEditingController _confirmpassController = TextEditingController();
+
+  @override
+  void initState() {
+    _emailController = TextEditingController();
+    _passController = TextEditingController();
+    super.initState();
+  }
+
+  _signin() async {
+    Map<String, String> body = {
+      "email": _emailController.text,
+      "password": _passController.text,
+    };
+
+    var response = await http.post(Global.getLoginUrl(),
+        headers: Global.getCustomizedHeader(), body: body);
+    return response;
+  }
+
+  void signinBtnListener() async {
+    String emailValidationMsg =
+        ValidationHelper.validateEmail(_emailController.text);
+    bool passValidationMsg =
+        ValidationHelper.validatePassword(_passController.text);
+    try {
+      if (_emailController.text.isNotEmpty &&
+          _passController.text.isNotEmpty &&
+          passValidationMsg == true) {
+        var response = await _signin();
+        var responseBody = jsonDecode(response.body);
+
+        if (response.statusCode == 200) {
+          ScaffoldMessenger.of(context).showSnackBar(
+              CustomSnackbar.showSnackbar(responseBody['message']));
+          storage.setItem("access_token", responseBody);
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => const Home()));
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+              CustomSnackbar.showSnackbar(responseBody['message']));
+        }
+      } else {
+        if (_emailController.text.isEmpty || emailValidationMsg == false) {
+          ScaffoldMessenger.of(context).showSnackBar(
+              CustomSnackbar.showSnackbar('Please enter valid email address!'));
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+              CustomSnackbar.showSnackbar('Please enter valid password!'));
+        }
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -158,10 +224,7 @@ class _LoginViaEmailState extends State<LoginViaEmail> {
                         borderRadius: BorderRadius.circular(25.0),
                       )),
                   onPressed: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => const Aboutus()),
-                    // );
+                    signinBtnListener();
                   },
                   child: const Center(
                     child: Text(
