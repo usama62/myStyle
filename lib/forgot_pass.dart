@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'verification_code.dart';
+
+enum AlertTypeEnum { Email, SMS }
 
 class ForgotPasword extends StatefulWidget {
   const ForgotPasword({
@@ -12,6 +13,8 @@ class ForgotPasword extends StatefulWidget {
 }
 
 class _ForgotPaswordState extends State<ForgotPasword> {
+  AlertTypeEnum? _AlertTypeEnum;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,34 +42,36 @@ class _ForgotPaswordState extends State<ForgotPasword> {
                 ),
               ),
               RadioListTile(
-                title: const Text("Via number",
-                    style: TextStyle(
-                        fontFamily: "Product Sans",
-                        fontWeight: FontWeight.normal,
-                        fontSize: 17.0,
-                        color: Color(0xFF000000))),
-                value: "male",
-                groupValue: "male",
-                tileColor: MaterialStateColor.resolveWith(
-                    (states) => const Color(0xFFE60D21)),
-                onChanged: (value) {
-                  setState(() {});
-                },
-              ),
-              RadioListTile(
                 title: const Text("Via Email",
                     style: TextStyle(
                         fontFamily: "Product Sans",
                         fontWeight: FontWeight.normal,
                         fontSize: 17.0,
                         color: Color(0xFF000000))),
-                value: "",
-                tileColor: MaterialStateColor.resolveWith(
-                    (states) => const Color(0xFFE60D21)),
+                value: AlertTypeEnum.Email,
+                groupValue: _AlertTypeEnum,
+                activeColor: const Color(0xFFE60D21),
                 onChanged: (value) {
-                  setState(() {});
+                  setState(() {
+                    _AlertTypeEnum = value;
+                  });
                 },
-                groupValue: '',
+              ),
+              RadioListTile(
+                title: const Text("Via number",
+                    style: TextStyle(
+                        fontFamily: "Product Sans",
+                        fontWeight: FontWeight.normal,
+                        fontSize: 17.0,
+                        color: Color(0xFF000000))),
+                value: AlertTypeEnum.SMS,
+                groupValue: _AlertTypeEnum,
+                activeColor: const Color(0xFFE60D21),
+                onChanged: (value) {
+                  setState(() {
+                    _AlertTypeEnum = value;
+                  });
+                },
               ),
               Padding(
                 padding:
