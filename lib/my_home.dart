@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:localstorage/localstorage.dart';
 import 'about_us.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -12,7 +13,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // final storage = LocalStorage('user_data');
+  final storage = LocalStorage('user_data');
 
   @override
   void initState() {
@@ -61,6 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     )),
                 onPressed: () {
                   context.locale = const Locale("en", "US");
+                  storage.setItem('language', 'english');
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => const Aboutus()),
@@ -92,6 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     )),
                 onPressed: () async {
                   context.locale = const Locale("es", "US");
+                  storage.setItem('language', 'spanish');
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => const Aboutus()),

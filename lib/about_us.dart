@@ -29,52 +29,52 @@ class _AboutusState extends State<Aboutus> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Image.asset('assets/images/logo.png'),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(0.0, 50.0, 0.0, 5.0),
-                  child: const Text(
-                    "about_us.heading",
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(0.0, 50.0, 0.0, 5.0),
+                  child: Text(
+                    "MyStyle",
                     style: TextStyle(
                         fontFamily: "Product Sans",
                         color: Color(0xff000000),
                         fontSize: 28.0,
                         fontWeight: FontWeight.bold),
-                  ).tr(),
+                  ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 10.0),
-                  child: const Text("about_us.para1",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              height: 1.5,
-                              fontFamily: "Product Sans",
-                              color: Color(0xff383338),
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.bold))
-                      .tr(),
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 10.0),
+                  child: Text(
+                      "Women and men express their beauty in different ways and have managed to capture the attention of humans being, when it comes to nails, hair style haircuts and make up style they are the best to express.",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          height: 1.5,
+                          fontFamily: "Product Sans",
+                          color: Color(0xff383338),
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.bold)),
                 ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-                  child: const Text("about_us.para2",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              height: 1.5,
-                              fontFamily: "Product Sans",
-                              color: Color(0xff383338),
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.bold))
-                      .tr(),
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                  child: Text(
+                      "My Style App is the ultimate social media app where women and men have the freedom to express the beauty, sharing and uploading photos, videos, hair style haircuts make up style and even their simplicity without make up.",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          height: 1.5,
+                          fontFamily: "Product Sans",
+                          color: Color(0xff383338),
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.bold)),
                 ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 50.0),
-                  child: const Text("about_us.para3",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              height: 1.5,
-                              fontFamily: "Product Sans",
-                              color: Color(0xff383338),
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.bold))
-                      .tr(),
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 50.0),
+                  child: Text(
+                      "My Style platform aloud you to interact around the world and sharing around the world same thing that makes you feel great. My Style app is yours to show your talent, passion and more.",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          height: 1.5,
+                          fontFamily: "Product Sans",
+                          color: Color(0xff383338),
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.bold)),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
