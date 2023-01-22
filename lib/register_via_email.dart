@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:localstorage/localstorage.dart';
 import 'package:my_style/utils/helpers/validation_helper.dart';
-import 'constants/Global.dart';
+import 'constants/global.dart';
 import 'custom/custom_snackbar.dart';
 import 'package:http/http.dart' as http;
 

@@ -11,8 +11,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  TextEditingController _jobTitleController = TextEditingController();
-  TextEditingController _descriptionController = TextEditingController();
+  final TextEditingController _jobTitleController = TextEditingController();
+  final TextEditingController _descriptionController = TextEditingController();
 
   final storage = LocalStorage('user_data');
 

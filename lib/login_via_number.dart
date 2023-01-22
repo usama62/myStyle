@@ -10,7 +10,7 @@ class LoginViaNumber extends StatefulWidget {
 }
 
 class _LoginViaNumberState extends State<LoginViaNumber> {
-  TextEditingController _emailController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {

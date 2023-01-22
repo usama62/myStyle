@@ -5,7 +5,7 @@ class ValidationHelper {
         r"{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]"
         r"{0,253}[a-zA-Z0-9])?)*$";
     RegExp regex = RegExp(pattern);
-    if (!regex.hasMatch(value) || value == null) {
+    if (!regex.hasMatch(value)) {
       return 'Enter a valid email address';
     } else {
       return " ";

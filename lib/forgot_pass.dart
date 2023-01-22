@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'verification_code.dart';
 
-enum AlertTypeEnum { Email, SMS }
+enum AlertTypeEnum { email, sms }
 
 class ForgotPasword extends StatefulWidget {
   const ForgotPasword({
@@ -13,7 +13,7 @@ class ForgotPasword extends StatefulWidget {
 }
 
 class _ForgotPaswordState extends State<ForgotPasword> {
-  AlertTypeEnum? _AlertTypeEnum;
+  AlertTypeEnum? _alertTypeEnum;
 
   @override
   Widget build(BuildContext context) {
@@ -48,12 +48,12 @@ class _ForgotPaswordState extends State<ForgotPasword> {
                         fontWeight: FontWeight.normal,
                         fontSize: 17.0,
                         color: Color(0xFF000000))),
-                value: AlertTypeEnum.Email,
-                groupValue: _AlertTypeEnum,
+                value: AlertTypeEnum.email,
+                groupValue: _alertTypeEnum,
                 activeColor: const Color(0xFFE60D21),
                 onChanged: (value) {
                   setState(() {
-                    _AlertTypeEnum = value;
+                    _alertTypeEnum = value;
                   });
                 },
               ),
@@ -64,12 +64,12 @@ class _ForgotPaswordState extends State<ForgotPasword> {
                         fontWeight: FontWeight.normal,
                         fontSize: 17.0,
                         color: Color(0xFF000000))),
-                value: AlertTypeEnum.SMS,
-                groupValue: _AlertTypeEnum,
+                value: AlertTypeEnum.sms,
+                groupValue: _alertTypeEnum,
                 activeColor: const Color(0xFFE60D21),
                 onChanged: (value) {
                   setState(() {
-                    _AlertTypeEnum = value;
+                    _alertTypeEnum = value;
                   });
                 },
               ),
