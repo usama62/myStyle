@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:localstorage/localstorage.dart';
+import 'constants/global.dart';
 import 'verification_code.dart';
+import 'package:http/http.dart' as http;
 
 enum AlertTypeEnum { email, sms }
 
@@ -14,6 +17,43 @@ class ForgotPasword extends StatefulWidget {
 
 class _ForgotPaswordState extends State<ForgotPasword> {
   AlertTypeEnum? _alertTypeEnum;
+  final storage = LocalStorage('user_data');
+
+  HandleSendCode() async {
+    var type = "";
+    if (_alertTypeEnum == AlertTypeEnum.email) {
+      type = "email";
+    } else {
+      type = "number";
+    }
+
+    var response = await _forgetPass(type);
+
+    // print();
+    // Navigator.push(
+    //   context,
+    //   MaterialPageRoute(builder: (context) => const VerificationCode()),
+    // );
+  }
+
+  _forgetPass(type) async {
+    var data = storage.getItem('user_data');
+    print(type);
+
+    Map<String, String> body = {
+      "value": data['email'],
+      "type": type,
+    };
+
+    // var response = await http.post(Global.getForgetPasswordUrl(),
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //       'Accept': 'application/json',
+    //       'Authorization': 'Bearer $token',
+    //     },
+    //     body: body);
+    // return response;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,22 +97,22 @@ class _ForgotPaswordState extends State<ForgotPasword> {
                   });
                 },
               ),
-              RadioListTile(
-                title: const Text("Via number",
-                    style: TextStyle(
-                        fontFamily: "Product Sans",
-                        fontWeight: FontWeight.normal,
-                        fontSize: 17.0,
-                        color: Color(0xFF000000))),
-                value: AlertTypeEnum.sms,
-                groupValue: _alertTypeEnum,
-                activeColor: const Color(0xFFE60D21),
-                onChanged: (value) {
-                  setState(() {
-                    _alertTypeEnum = value;
-                  });
-                },
-              ),
+              // RadioListTile(
+              //   title: const Text("Via number",
+              //       style: TextStyle(
+              //           fontFamily: "Product Sans",
+              //           fontWeight: FontWeight.normal,
+              //           fontSize: 17.0,
+              //           color: Color(0xFF000000))),
+              //   value: AlertTypeEnum.sms,
+              //   groupValue: _alertTypeEnum,
+              //   activeColor: const Color(0xFFE60D21),
+              //   onChanged: (value) {
+              //     setState(() {
+              //       _alertTypeEnum = value;
+              //     });
+              //   },
+              // ),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
@@ -85,11 +125,7 @@ class _ForgotPaswordState extends State<ForgotPasword> {
                         borderRadius: BorderRadius.circular(25.0),
                       )),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const VerificationCode()),
-                    );
+                    HandleSendCode();
                   },
                   child: const Center(
                     child: Text(

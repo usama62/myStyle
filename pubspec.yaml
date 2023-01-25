@@ -77,7 +77,9 @@ flutter:
     - assets/images/email-icon.png
     - assets/images/facebook.png
     - assets/images/mobile.png
+    - assets/images/confrm-password.png
     - assets/images/password.png
+    - assets/images/enter-name.png
     - assets/translations/
 
   # An image asset can refer to one or more resolution-specific "variants", see

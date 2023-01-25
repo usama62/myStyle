@@ -18,11 +18,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    // var data = storage.getItem('user_data');
-    // if (data != null) {
-    //   Navigator.push(
-    //       context, MaterialPageRoute(builder: (context) => const Categories()));
-    // }
   }
 
   @override

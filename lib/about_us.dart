@@ -65,7 +65,7 @@ class _AboutusState extends State<Aboutus> {
                           fontWeight: FontWeight.bold)),
                 ),
                 const Padding(
-                  padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 50.0),
+                  padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
                   child: Text(
                       "My Style platform aloud you to interact around the world and sharing around the world same thing that makes you feel great. My Style app is yours to show your talent, passion and more.",
                       textAlign: TextAlign.center,
@@ -77,7 +77,8 @@ class _AboutusState extends State<Aboutus> {
                           fontWeight: FontWeight.bold)),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
                   child: TextButton(
                     style: TextButton.styleFrom(
                         padding:

@@ -48,6 +48,15 @@ class _RegisterViaEmailState extends State<RegisterViaEmail> {
     return response;
   }
 
+  _getUserData(token) async {
+    var response = await http.post(Global.getUserDataUrl(), headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': 'Bearer $token',
+    });
+    return response;
+  }
+
   void signupBtnListener() async {
     bool emailValidationMsg =
         ValidationHelper.validatePassword(_passController.text);
@@ -64,7 +73,9 @@ class _RegisterViaEmailState extends State<RegisterViaEmail> {
           if (response.statusCode == 200) {
             ScaffoldMessenger.of(context).showSnackBar(
                 CustomSnackbar.showSnackbar(responseBody['message']));
-            storage.setItem("user_data", responseBody);
+            var userData = await _getUserData(responseBody['access_token']);
+            var userDataBody = jsonDecode(userData.body);
+            storage.setItem("user_data", userDataBody);
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => const Home()));
           } else {
@@ -141,7 +152,7 @@ class _RegisterViaEmailState extends State<RegisterViaEmail> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
-                          child: Image.asset("assets/images/email-icon.png"),
+                          child: Image.asset("assets/images/enter-name.png"),
                         ),
                         Flexible(
                           child: Padding(
@@ -337,7 +348,8 @@ class _RegisterViaEmailState extends State<RegisterViaEmail> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
-                          child: Image.asset("assets/images/password.png"),
+                          child:
+                              Image.asset("assets/images/confrm-password.png"),
                         ),
                         Flexible(
                           child: Padding(

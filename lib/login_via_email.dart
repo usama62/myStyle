@@ -52,18 +52,18 @@ class _LoginViaEmailState extends State<LoginViaEmail> {
         var response = await _signin();
         var responseBody = jsonDecode(response.body);
 
-        if (response.statusCode == 200) {
-          ScaffoldMessenger.of(context).showSnackBar(
-              CustomSnackbar.showSnackbar(responseBody['message']));
-          storage.setItem("access_token", responseBody);
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => const Home()));
-        } else {
-          ScaffoldMessenger.of(context).showSnackBar(
-              CustomSnackbar.showSnackbar(responseBody['message']));
-        }
+        // if (responseBody) {
+        ScaffoldMessenger.of(context).showSnackBar(
+            CustomSnackbar.showSnackbar("Logged IN Successfully!"));
+        // storage.setItem('access_token', responseBody['access_token']);
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => const Home()));
+        // } else {
+        //   ScaffoldMessenger.of(context)
+        //       .showSnackBar(CustomSnackbar.showSnackbar(responseBody['error']));
+        // }
       } else {
-        if (_emailController.text.isEmpty || emailValidationMsg == false) {
+        if (_emailController.text.isEmpty || emailValidationMsg != "success") {
           ScaffoldMessenger.of(context).showSnackBar(
               CustomSnackbar.showSnackbar('Please enter valid email address!'));
         } else {

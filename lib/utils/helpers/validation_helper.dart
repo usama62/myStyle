@@ -8,7 +8,7 @@ class ValidationHelper {
     if (!regex.hasMatch(value)) {
       return 'Enter a valid email address';
     } else {
-      return " ";
+      return "success";
     }
   }
 
