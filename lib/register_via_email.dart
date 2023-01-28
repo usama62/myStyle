@@ -113,9 +113,7 @@ class _RegisterViaEmailState extends State<RegisterViaEmail> {
 
   @override
   Widget build(BuildContext context) {
-    return isLoading
-        ? const Loader()
-        : Scaffold(
+    return Scaffold(
             body: SingleChildScrollView(
             child: Stack(children: [
               Container(

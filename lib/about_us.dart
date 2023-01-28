@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'entry_option.dart';
 import 'package:easy_localization/easy_localization.dart';
 
+import 'newPassword.dart';
+
 class Aboutus extends StatefulWidget {
   const Aboutus({
     Key? key,
@@ -91,7 +93,8 @@ class _AboutusState extends State<Aboutus> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const EntryOption()),
+                            // builder: (context) => const EntryOption()
+                            builder: (context) => const NewPasword()),
                       );
                     },
                     child: const Center(

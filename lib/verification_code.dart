@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 
+import 'newPassword.dart';
+
 class VerificationCode extends StatefulWidget {
   const VerificationCode({
     Key? key,
@@ -100,10 +102,11 @@ class _VerificationCodeState extends State<VerificationCode> {
                           borderRadius: BorderRadius.circular(25.0),
                         )),
                     onPressed: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(builder: (context) => const Aboutus()),
-                      // );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const NewPasword()),
+                      );
                     },
                     child: const Center(
                       child: Text(
