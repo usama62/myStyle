@@ -1,4 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:insta_like_button/insta_like_button.dart';
 
 class Home extends StatefulWidget {
   const Home({
@@ -81,10 +83,10 @@ class _HomeState extends State<Home> {
                   Padding(
                       padding: const EdgeInsets.all(10),
                       child: Column(children: [
-                        Image.asset("assets/images/jennifer.png"),
+                        Image.asset("assets/images/Laura.png"),
                         const Padding(
                           padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
-                          child: Text("Jennifier",
+                          child: Text("Laura",
                               style: TextStyle(
                                   fontFamily: "Product Sans",
                                   color: Color(0xff000000),
@@ -95,10 +97,10 @@ class _HomeState extends State<Home> {
                   Padding(
                       padding: const EdgeInsets.all(10),
                       child: Column(children: [
-                        Image.asset("assets/images/jennifer.png"),
+                        Image.asset("assets/images/Alexander.png"),
                         const Padding(
                           padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
-                          child: Text("Jennifier",
+                          child: Text("Alexander",
                               style: TextStyle(
                                   fontFamily: "Product Sans",
                                   color: Color(0xff000000),
@@ -109,10 +111,10 @@ class _HomeState extends State<Home> {
                   Padding(
                       padding: const EdgeInsets.all(10),
                       child: Column(children: [
-                        Image.asset("assets/images/jennifer.png"),
+                        Image.asset("assets/images/Raoxam.png"),
                         const Padding(
                           padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
-                          child: Text("Jennifier",
+                          child: Text("Raoxam",
                               style: TextStyle(
                                   fontFamily: "Product Sans",
                                   color: Color(0xff000000),
@@ -123,10 +125,10 @@ class _HomeState extends State<Home> {
                   Padding(
                       padding: const EdgeInsets.all(10),
                       child: Column(children: [
-                        Image.asset("assets/images/jennifer.png"),
+                        Image.asset("assets/images/shahsha.png"),
                         const Padding(
                           padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
-                          child: Text("Jennifier",
+                          child: Text("shahsha",
                               style: TextStyle(
                                   fontFamily: "Product Sans",
                                   color: Color(0xff000000),
@@ -137,10 +139,10 @@ class _HomeState extends State<Home> {
                   Padding(
                       padding: const EdgeInsets.all(10),
                       child: Column(children: [
-                        Image.asset("assets/images/jennifer.png"),
+                        Image.asset("assets/images/shahsha.png"),
                         const Padding(
                           padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
-                          child: Text("Jennifier",
+                          child: Text("shahsha",
                               style: TextStyle(
                                   fontFamily: "Product Sans",
                                   color: Color(0xff000000),
@@ -151,45 +153,314 @@ class _HomeState extends State<Home> {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 30, 0, 0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Image.asset("assets/images/profilesmall.png"),
-                  Column(
-                    children: const [
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 30, 0, 0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Image.asset("assets/images/profilesmall.png"),
+                      Column(
+                        children: const [
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                            child: Text("Jennifier with Laura",
+                                style: TextStyle(
+                                    fontFamily: "Product Sans",
+                                    color: Color(0xff000000),
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold)),
+                          ),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: Text("Texas. New York . U.S.A",
+                                style: TextStyle(
+                                    fontFamily: "Product Sans",
+                                    color: Color(0xff000000),
+                                    fontSize: 10.0,
+                                    fontWeight: FontWeight.normal)),
+                          ),
+                        ],
+                      ),
                       Padding(
-                        padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                        child: Text("Jennifier with Laura",
-                            style: TextStyle(
-                                fontFamily: "Product Sans",
-                                color: Color(0xff000000),
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.bold)),
-                      ),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: Text("Texas. New York . U.S.A",
-                            style: TextStyle(
-                                fontFamily: "Product Sans",
-                                color: Color(0xff000000),
-                                fontSize: 10.0,
-                                fontWeight: FontWeight.normal)),
-                      ),
+                          padding: const EdgeInsets.fromLTRB(170, 0, 0, 0),
+                          child: Image.asset("assets/images/menu-icon.png")),
                     ],
                   ),
-                  Padding(
-                      padding: const EdgeInsets.fromLTRB(180, 0, 0, 0),
-                      child: Image.asset("assets/images/menu-icon.png")),
-                ],
-              ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),
+                  child: InstaLikeButton(
+                    image: const AssetImage("assets/images/PostImage.png"),
+                    onChanged: () {
+                      // Do something...
+                    },
+                    icon: Icons.favorite,
+                    iconSize: 80,
+                    iconColor: const Color(0xffE60D21),
+                    curve: Curves.fastLinearToSlowEaseIn,
+                    width: MediaQuery.of(context).size.width - 20,
+                    duration: const Duration(seconds: 1),
+                    onImageError: (e, _) {
+                      // Do something...
+                    },
+                    imageAlignment: Alignment.center,
+                    imageBoxfit: BoxFit.fill,
+                  ),
+                ),
+                Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
+                    child: Row(
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text("165",
+                              style: TextStyle(
+                                  fontFamily: "Product Sans",
+                                  color: Color(0xff000000),
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.bold)),
+                        ),
+                        const Icon(Icons.favorite_border),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                          child: Image.asset("assets/images/comment.png"),
+                        ),
+                        Image.asset("assets/images/share.png"),
+                      ],
+                    )),
+                const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 20.0),
+                    child: Text.rich(
+                      TextSpan(
+                        style: TextStyle(
+                          fontFamily: 'Product Sans',
+                          fontSize: 14,
+                          color: Color(0xff000000),
+                        ),
+                        children: [
+                          TextSpan(
+                            text: "Liked by ",
+                          ),
+                          TextSpan(
+                            text: 'Alexender ',
+                            style: TextStyle(
+                              color: Color(0xff000000),
+                              fontWeight: FontWeight.w900,
+                            ),
+                          ),
+                          TextSpan(
+                            text: 'and others',
+                            style: TextStyle(
+                              color: Color(0xff000000),
+                            ),
+                          ),
+                        ],
+                      ),
+                      textHeightBehavior:
+                          TextHeightBehavior(applyHeightToFirstAscent: false),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+                //Comments
+                const Padding(
+                  padding: EdgeInsets.only(top: 10.0),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 20.0),
+                      child: Text.rich(
+                        TextSpan(
+                          style: TextStyle(
+                            fontFamily: 'Product Sans',
+                            fontSize: 11,
+                            color: Color(0xff000000),
+                          ),
+                          children: [
+                            TextSpan(
+                              text: 'Alexender: ',
+                              style: TextStyle(
+                                color: Color(0xff000000),
+                                fontWeight: FontWeight.w900,
+                              ),
+                            ),
+                            TextSpan(
+                              text: 'Nice 🙂',
+                              style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                color: Color(0xff000000),
+                              ),
+                            ),
+                          ],
+                        ),
+                        textHeightBehavior:
+                            TextHeightBehavior(applyHeightToFirstAscent: false),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-              child: Image.asset("assets/images/PostImage.png"),
-            ),
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 30, 0, 0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Image.asset("assets/images/profilesmall2.png"),
+                      Column(
+                        children: const [
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                            child: Text("Roxsan with Jennifier",
+                                style: TextStyle(
+                                    fontFamily: "Product Sans",
+                                    color: Color(0xff000000),
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold)),
+                          ),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: Text("Texas. New York . U.S.A",
+                                style: TextStyle(
+                                    fontFamily: "Product Sans",
+                                    color: Color(0xff000000),
+                                    fontSize: 10.0,
+                                    fontWeight: FontWeight.normal)),
+                          ),
+                        ],
+                      ),
+                      Padding(
+                          padding: const EdgeInsets.fromLTRB(170, 0, 0, 0),
+                          child: Image.asset("assets/images/menu-icon.png")),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),
+                  child: InstaLikeButton(
+                    image: const AssetImage("assets/images/PostImage2.png"),
+                    onChanged: () {
+                      // Do something...
+                    },
+                    icon: Icons.favorite,
+                    iconSize: 80,
+                    iconColor: const Color(0xffE60D21),
+                    curve: Curves.fastLinearToSlowEaseIn,
+                    width: MediaQuery.of(context).size.width - 20,
+                    duration: const Duration(seconds: 1),
+                    onImageError: (e, _) {
+                      // Do something...
+                    },
+                    imageAlignment: Alignment.center,
+                    imageBoxfit: BoxFit.fill,
+                  ),
+                ),
+                Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
+                    child: Row(
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text("165",
+                              style: TextStyle(
+                                  fontFamily: "Product Sans",
+                                  color: Color(0xff000000),
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.bold)),
+                        ),
+                        const Icon(Icons.favorite_border),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                          child: Image.asset("assets/images/comment.png"),
+                        ),
+                        Image.asset("assets/images/share.png"),
+                      ],
+                    )),
+                const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 20.0),
+                    child: Text.rich(
+                      TextSpan(
+                        style: TextStyle(
+                          fontFamily: 'Product Sans',
+                          fontSize: 14,
+                          color: Color(0xff000000),
+                        ),
+                        children: [
+                          TextSpan(
+                            text: "Liked by ",
+                          ),
+                          TextSpan(
+                            text: 'Alexender ',
+                            style: TextStyle(
+                              color: Color(0xff000000),
+                              fontWeight: FontWeight.w900,
+                            ),
+                          ),
+                          TextSpan(
+                            text: 'and others',
+                            style: TextStyle(
+                              color: Color(0xff000000),
+                            ),
+                          ),
+                        ],
+                      ),
+                      textHeightBehavior:
+                          TextHeightBehavior(applyHeightToFirstAscent: false),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+                //Comments
+                const Padding(
+                  padding: EdgeInsets.only(top: 10.0),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 20.0),
+                      child: Text.rich(
+                        TextSpan(
+                          style: TextStyle(
+                            fontFamily: 'Product Sans',
+                            fontSize: 11,
+                            color: Color(0xff000000),
+                          ),
+                          children: [
+                            TextSpan(
+                              text: 'Alexender: ',
+                              style: TextStyle(
+                                color: Color(0xff000000),
+                                fontWeight: FontWeight.w900,
+                              ),
+                            ),
+                            TextSpan(
+                              text: 'Nice 🙂',
+                              style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                color: Color(0xff000000),
+                              ),
+                            ),
+                          ],
+                        ),
+                        textHeightBehavior:
+                            TextHeightBehavior(applyHeightToFirstAscent: false),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            )
           ],
         ),
       ),
