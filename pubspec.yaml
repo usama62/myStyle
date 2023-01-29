@@ -83,6 +83,9 @@ flutter:
     - assets/images/enter-name.png
     - assets/images/messages.png
     - assets/images/jennifer.png
+    - assets/images/profilesmall.png
+    - assets/images/menu-icon.png
+    - assets/images/PostImage.png
     - assets/translations/
 
   # An image asset can refer to one or more resolution-specific "variants", see
