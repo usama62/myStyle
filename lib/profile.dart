@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:insta_like_button/insta_like_button.dart';
+import 'package:my_style/home.dart';
 
 class Profile extends StatefulWidget {
   const Profile({
@@ -170,7 +171,7 @@ class _ProfileState extends State<Profile> {
                           context,
                           MaterialPageRoute(
                               // builder: (context) => const EntryOption()
-                              builder: (context) => const Profile()),
+                              builder: (context) => const Home()),
                         );
                       },
                       child: const Center(

@@ -65,6 +65,7 @@ class _HomeState extends State<Home> {
               padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
               scrollDirection: Axis.horizontal,
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Padding(
                       padding: const EdgeInsets.all(10),
@@ -156,23 +157,19 @@ class _HomeState extends State<Home> {
             Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 30, 0, 0),
+                  padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Image.asset("assets/images/profilesmall.png"),
                       Column(
                         children: const [
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                            child: Text("Jennifier with Laura",
-                                style: TextStyle(
-                                    fontFamily: "Product Sans",
-                                    color: Color(0xff000000),
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold)),
-                          ),
+                          Text("Jennifier with Laura",
+                              style: TextStyle(
+                                  fontFamily: "Product Sans",
+                                  color: Color(0xff000000),
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.bold)),
                           Align(
                             alignment: Alignment.centerRight,
                             child: Text("Texas. New York . U.S.A",
@@ -191,7 +188,7 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),
+                  padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                   child: InstaLikeButton(
                     image: const AssetImage("assets/images/PostImage.png"),
                     onChanged: () {

@@ -3,6 +3,8 @@ import 'package:my_style/profile.dart';
 import 'entry_option.dart';
 import 'package:easy_localization/easy_localization.dart';
 
+import 'home.dart';
+
 class Aboutus extends StatefulWidget {
   const Aboutus({
     Key? key,
@@ -93,7 +95,7 @@ class _AboutusState extends State<Aboutus> {
                         context,
                         MaterialPageRoute(
                             // builder: (context) => const EntryOption()
-                            builder: (context) => const Profile()),
+                            builder: (context) => const Home()),
                       );
                     },
                     child: const Center(
