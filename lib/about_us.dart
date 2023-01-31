@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:my_style/profile.dart';
 import 'entry_option.dart';
 import 'package:easy_localization/easy_localization.dart';
-
-import 'newPassword.dart';
 
 class Aboutus extends StatefulWidget {
   const Aboutus({
@@ -94,7 +93,7 @@ class _AboutusState extends State<Aboutus> {
                         context,
                         MaterialPageRoute(
                             // builder: (context) => const EntryOption()
-                            builder: (context) => const NewPasword()),
+                            builder: (context) => const Profile()),
                       );
                     },
                     child: const Center(

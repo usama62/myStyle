@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_like_button/insta_like_button.dart';
 
@@ -21,7 +20,7 @@ class _HomeState extends State<Home> {
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 50, 20, 0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const Padding(
@@ -33,6 +32,7 @@ class _HomeState extends State<Home> {
                             fontSize: 24.0,
                             fontWeight: FontWeight.bold)),
                   ),
+                  const Spacer(),
                   Container(
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(
