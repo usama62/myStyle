@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_style/plans.dart';
 import 'package:my_style/profile.dart';
 import 'entry_option.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -94,7 +95,7 @@ class _AboutusState extends State<Aboutus> {
                         context,
                         MaterialPageRoute(
                             // builder: (context) => const EntryOption()
-                            builder: (context) => const Home()),
+                            builder: (context) => const Plans()),
                       );
                     },
                     child: const Center(

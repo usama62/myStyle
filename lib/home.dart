@@ -457,27 +457,31 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ],
-            ),
-            Align(
-              alignment: const Alignment(0.0, 1.0),
-              child: ClipRRect(
-                borderRadius: const BorderRadius.all(Radius.circular(30)),
-                child: BottomNavigationBar(
-                  selectedItemColor: const Color(0xFFE60D21),
-                  unselectedItemColor: const Color(0xFFE60D21),
-                  backgroundColor: const Color(0xFFFFFFFF),
-                  items: const [
-                    BottomNavigationBarItem(
-                        icon: Icon(Icons.home), label: "home"),
-                    BottomNavigationBarItem(
-                        icon: Icon(Icons.photo_camera), label: "Camera"),
-                    BottomNavigationBarItem(
-                        icon: Icon(Icons.person), label: "Profile"),
-                  ],
-                ),
-              ),
-            ),
+            )
           ],
+        ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(25.0),
+          child: BottomNavigationBar(
+            selectedItemColor: const Color(0xFFE60D21),
+            unselectedItemColor: const Color(0xFF000000),
+            backgroundColor: const Color(0xFFFFFFFF),
+            iconSize: 20,
+            items: const [
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: "home"),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.search), label: "Search"),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.photo_camera), label: "Camera"),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.category), label: "Category"),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.person), label: "Profile"),
+            ],
+          ),
         ),
       ),
     );
