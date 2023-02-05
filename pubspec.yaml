@@ -111,6 +111,7 @@ flutter:
     - assets/images/8.png
     - assets/images/9.png
     - assets/images/add_card.png
+    - assets/images/add_card_large.png
     - assets/images/visa.png
     - assets/images/visa_large.png
     - assets/images/master_card.png
