@@ -110,6 +110,12 @@ flutter:
     - assets/images/7.png
     - assets/images/8.png
     - assets/images/9.png
+    - assets/images/add_card.png
+    - assets/images/visa.png
+    - assets/images/visa_large.png
+    - assets/images/master_card.png
+    - assets/images/calender.png
+    - assets/images/cvv.png
     - assets/translations/
 
   # An image asset can refer to one or more resolution-specific "variants", see
