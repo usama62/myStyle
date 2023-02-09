@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_style/profile.dart';
+import 'messages.dart';
 
 class AddCard extends StatefulWidget {
   const AddCard({
@@ -60,7 +60,13 @@ class _AddCardState extends State<AddCard> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(25.0),
                           )),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Message()),
+                        );
+                      },
                       child: const Center(
                         child: Text(
                           "Okay",
