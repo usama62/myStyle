@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'messages.dart';
+import 'news_letter.dart';
 
 class AddCard extends StatefulWidget {
   const AddCard({
@@ -64,7 +64,7 @@ class _AddCardState extends State<AddCard> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const Message()),
+                              builder: (context) => const NewsLetter()),
                         );
                       },
                       child: const Center(

@@ -508,7 +508,7 @@ class _MessageState extends State<Message> {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.fromLTRB(20.0, 30.0, 0.0, 0.0),
+          padding: const EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 0.0),
           child: Row(
             children: [
               IconButton(

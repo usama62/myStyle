@@ -118,6 +118,7 @@ flutter:
     - assets/images/calender.png
     - assets/images/cvv.png
     - assets/images/search.png
+    - assets/images/newsletter.png
     - assets/translations/
 
   # An image asset can refer to one or more resolution-specific "variants", see
