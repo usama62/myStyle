@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_style/home.dart';
+import 'package:my_style/plans.dart';
 
 List _images = [
   'assets/images/1.png',
@@ -95,7 +96,7 @@ class _ProfileState extends State<Profile> {
                                 color: Color(0xff000000),
                                 fontSize: 23.0,
                                 fontWeight: FontWeight.bold)),
-                        Text("Friends",
+                        Text("Followers",
                             style: TextStyle(
                                 fontFamily: "Product Sans",
                                 color: Color(0xff000000),
@@ -185,7 +186,7 @@ class _ProfileState extends State<Profile> {
                             context,
                             MaterialPageRoute(
                                 // builder: (context) => const EntryOption()
-                                builder: (context) => const Home()),
+                                builder: (context) => const Plans()),
                           );
                         },
                         child: const Center(
