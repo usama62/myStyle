@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_style/login.dart';
 import 'package:my_style/splash.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -37,7 +38,7 @@ class _MyAppState extends State<MyApp> {
         primaryColor: const Color(0xFFE60D21),
       ),
       // home: const MyHomePage(title: ''),
-      home: const Splash(),
+      home: const Login(),
     );
   }
 }

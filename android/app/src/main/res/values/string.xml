@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">mystle auth</string>
+    <string name="facebook_app_id">589780066329836</string>
+    <string name="fb_login_protocol_scheme">fb589780066329836</string>
+    <string name="facebook_client_token">bf4294d63ad91c920f4cab47edf54458</string>
+</resources>
