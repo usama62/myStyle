@@ -4,6 +4,13 @@ import 'package:image_picker/image_picker.dart';
 import 'package:my_style/payments.dart';
 
 List<String> list = <String>['Gender', 'Male', 'Female'];
+List<String> maritalStatusList = <String>[
+  'Marital Status',
+  'Single',
+  'Married',
+  'Divorced',
+  'Widow'
+];
 
 class EditProfile extends StatefulWidget {
   const EditProfile({
@@ -17,7 +24,24 @@ class EditProfile extends StatefulWidget {
 class _EditProfileState extends State<EditProfile> {
   final ImagePicker _picker = ImagePicker();
   String dropdownValue = list.first;
+  String maritaldropdownValue = maritalStatusList.first;
   String profileImage = "";
+  DateTime selectedDate = DateTime.now();
+  String textDOB = "Day of Birth";
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: selectedDate,
+        firstDate: DateTime(2015, 8),
+        lastDate: DateTime(2101));
+    if (picked != null && picked != selectedDate) {
+      setState(() {
+        selectedDate = picked;
+        textDOB = '';
+      });
+    }
+  }
 
   Future<void> _displayPickImageDialog() {
     return showDialog(
@@ -287,8 +311,9 @@ class _EditProfileState extends State<EditProfile> {
                               Flexible(
                                 child: Padding(
                                     padding:
-                                        const EdgeInsets.fromLTRB(30, 0, 0, 0),
+                                        const EdgeInsets.fromLTRB(30, 0, 10, 0),
                                     child: DropdownButton(
+                                      isExpanded: true,
                                       value: dropdownValue,
                                       elevation: 16,
                                       style:
@@ -427,6 +452,52 @@ class _EditProfileState extends State<EditProfile> {
                     ),
                   ),
                   child: Row(
+                    children: [
+                      Flexible(
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
+                          child: InkWell(
+                            onTap: () {
+                              _selectDate(context);
+                            },
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 13.0),
+                              child: Text(
+                                textDOB != ''
+                                    ? textDOB
+                                    : "${selectedDate.toLocal()}".split(' ')[0],
+                                style: const TextStyle(
+                                    fontFamily: "Product Sans",
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 17.0,
+                                    color: Color(0xff000000)),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(25.0),
+                      topRight: Radius.circular(25.0),
+                      bottomLeft: Radius.circular(25.0),
+                      bottomRight: Radius.circular(25.0),
+                    ),
+                    border: Border.all(
+                      color: const Color(0xFFE60D21),
+                      width: 1,
+                    ),
+                  ),
+                  child: Row(
                     children: const [
                       Flexible(
                         child: Padding(
@@ -438,7 +509,237 @@ class _EditProfileState extends State<EditProfile> {
                                 fontSize: 17.0,
                                 color: Color(0xff000000)),
                             decoration: InputDecoration(
-                              hintText: 'Age',
+                              hintText: 'Education',
+                              hintStyle: TextStyle(
+                                  fontFamily: "Product Sans",
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 17.0,
+                                  color: Color(0xff000000)),
+                              border: InputBorder.none,
+                            ),
+                            keyboardType: TextInputType.emailAddress,
+                            controller: null,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(25.0),
+                      topRight: Radius.circular(25.0),
+                      bottomLeft: Radius.circular(25.0),
+                      bottomRight: Radius.circular(25.0),
+                    ),
+                    border: Border.all(
+                      color: const Color(0xFFE60D21),
+                      width: 1,
+                    ),
+                  ),
+                  child: Row(
+                    children: const [
+                      Flexible(
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+                          child: TextField(
+                            style: TextStyle(
+                                fontFamily: "Product Sans",
+                                fontWeight: FontWeight.normal,
+                                fontSize: 17.0,
+                                color: Color(0xff000000)),
+                            decoration: InputDecoration(
+                              hintText: 'Occupation',
+                              hintStyle: TextStyle(
+                                  fontFamily: "Product Sans",
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 17.0,
+                                  color: Color(0xff000000)),
+                              border: InputBorder.none,
+                            ),
+                            keyboardType: TextInputType.emailAddress,
+                            controller: null,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(25.0),
+                      topRight: Radius.circular(25.0),
+                      bottomLeft: Radius.circular(25.0),
+                      bottomRight: Radius.circular(25.0),
+                    ),
+                    border: Border.all(
+                      color: const Color(0xFFE60D21),
+                      width: 1,
+                    ),
+                  ),
+                  child: Row(
+                    children: const [
+                      Flexible(
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+                          child: TextField(
+                            style: TextStyle(
+                                fontFamily: "Product Sans",
+                                fontWeight: FontWeight.normal,
+                                fontSize: 17.0,
+                                color: Color(0xff000000)),
+                            decoration: InputDecoration(
+                              hintText: 'Business Address',
+                              hintStyle: TextStyle(
+                                  fontFamily: "Product Sans",
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 17.0,
+                                  color: Color(0xff000000)),
+                              border: InputBorder.none,
+                            ),
+                            keyboardType: TextInputType.emailAddress,
+                            controller: null,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(25.0),
+                      topRight: Radius.circular(25.0),
+                      bottomLeft: Radius.circular(25.0),
+                      bottomRight: Radius.circular(25.0),
+                    ),
+                    border: Border.all(
+                      color: const Color(0xFFE60D21),
+                      width: 1,
+                    ),
+                  ),
+                  child: Row(
+                    children: [
+                      Flexible(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 25),
+                          child: DropdownButton(
+                            isExpanded: true,
+                            value: maritaldropdownValue,
+                            elevation: 16,
+                            style: const TextStyle(color: Colors.black),
+                            onChanged: (String? value) {
+                              setState(() {
+                                maritaldropdownValue = value!;
+                              });
+                            },
+                            items: maritalStatusList
+                                .map<DropdownMenuItem<String>>((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value,
+                                    style: const TextStyle(
+                                        fontFamily: "Product Sans",
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: 17.0,
+                                        color: Color(0xff000000))),
+                              );
+                            }).toList(),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(25.0),
+                      topRight: Radius.circular(25.0),
+                      bottomLeft: Radius.circular(25.0),
+                      bottomRight: Radius.circular(25.0),
+                    ),
+                    border: Border.all(
+                      color: const Color(0xFFE60D21),
+                      width: 1,
+                    ),
+                  ),
+                  child: Row(
+                    children: const [
+                      Flexible(
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+                          child: TextField(
+                            style: TextStyle(
+                                fontFamily: "Product Sans",
+                                fontWeight: FontWeight.normal,
+                                fontSize: 17.0,
+                                color: Color(0xff000000)),
+                            decoration: InputDecoration(
+                              hintText: 'Personal email',
+                              hintStyle: TextStyle(
+                                  fontFamily: "Product Sans",
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 17.0,
+                                  color: Color(0xff000000)),
+                              border: InputBorder.none,
+                            ),
+                            keyboardType: TextInputType.emailAddress,
+                            controller: null,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(25.0),
+                      topRight: Radius.circular(25.0),
+                      bottomLeft: Radius.circular(25.0),
+                      bottomRight: Radius.circular(25.0),
+                    ),
+                    border: Border.all(
+                      color: const Color(0xFFE60D21),
+                      width: 1,
+                    ),
+                  ),
+                  child: Row(
+                    children: const [
+                      Flexible(
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+                          child: TextField(
+                            style: TextStyle(
+                                fontFamily: "Product Sans",
+                                fontWeight: FontWeight.normal,
+                                fontSize: 17.0,
+                                color: Color(0xff000000)),
+                            decoration: InputDecoration(
+                              hintText: 'Business email',
                               hintStyle: TextStyle(
                                   fontFamily: "Product Sans",
                                   fontWeight: FontWeight.normal,
