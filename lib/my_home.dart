@@ -83,7 +83,6 @@ class _MyHomePageState extends State<MyHomePage> {
                         const BorderSide(width: 1.0, color: Color(0xFFE60D21)),
                     padding:
                         const EdgeInsets.fromLTRB(131.5, 14.0, 131.5, 14.0),
-                    // backgroundColor: const Color(0xFFE60D21),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25.0),
                     )),
