@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'register_via_email.dart';
 
 class Register extends StatefulWidget {
@@ -11,6 +12,8 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  Map _userObj = {};
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -113,10 +116,15 @@ class _RegisterState extends State<Register> {
                         borderRadius: BorderRadius.circular(25.0),
                       )),
                   onPressed: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => const Aboutus()),
-                    // );
+                    //Facebook Auth
+                    FacebookAuth.instance
+                        .login(permissions: ["email"]).then((value) {
+                      FacebookAuth.instance.getUserData().then((userData) {
+                        setState(() {
+                          _userObj = userData;
+                        });
+                      });
+                    });
                   },
                   child: Row(children: [
                     Padding(

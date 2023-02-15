@@ -95,8 +95,8 @@ class _AboutusState extends State<Aboutus> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            // builder: (context) => const EntryOption()
-                            builder: (context) => const EditProfile()),
+                            // builder: (context) => const EditProfile()
+                            builder: (context) => const EntryOption()),
                       );
                     },
                     child: const Center(

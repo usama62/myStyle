@@ -3,6 +3,7 @@ import 'package:my_style/login.dart';
 import 'package:my_style/splash.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'my_home.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,8 +38,8 @@ class _MyAppState extends State<MyApp> {
         fontFamily: 'PoppinsSemiBold',
         primaryColor: const Color(0xFFE60D21),
       ),
-      // home: const MyHomePage(title: ''),
-      home: const Login(),
+      home: const MyHomePage(title: ''),
+      // home: const Login(),
     );
   }
 }
