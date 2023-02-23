@@ -122,6 +122,13 @@ flutter:
     - assets/images/newsletter.png
     - assets/images/report.png
     - assets/images/avatar.png
+    - assets/images/photos.png
+    - assets/images/videos.png
+    - assets/images/Male.png
+    - assets/images/Female.png
+    - assets/images/Hair.png
+    - assets/images/Nails.png
+    - assets/images/MakeUp.png
     - assets/translations/
 
   # An image asset can refer to one or more resolution-specific "variants", see

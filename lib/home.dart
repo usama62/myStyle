@@ -147,7 +147,7 @@ class _HomeState extends State<Home> {
                   Padding(
                       padding: const EdgeInsets.all(10),
                       child: Column(children: [
-                        Image.asset("assets/images/jennifer.png"),
+                        Image.asset("assets/images/photos.png"),
                         const Padding(
                           padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
                           child: Text("Photos",
@@ -161,7 +161,7 @@ class _HomeState extends State<Home> {
                   Padding(
                       padding: const EdgeInsets.all(10),
                       child: Column(children: [
-                        Image.asset("assets/images/Laura.png"),
+                        Image.asset("assets/images/videos.png"),
                         const Padding(
                           padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
                           child: Text("Videos",
@@ -175,7 +175,7 @@ class _HomeState extends State<Home> {
                   Padding(
                       padding: const EdgeInsets.all(10),
                       child: Column(children: [
-                        Image.asset("assets/images/Alexander.png"),
+                        Image.asset("assets/images/Male.png"),
                         const Padding(
                           padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
                           child: Text("Male",
@@ -189,7 +189,7 @@ class _HomeState extends State<Home> {
                   Padding(
                       padding: const EdgeInsets.all(10),
                       child: Column(children: [
-                        Image.asset("assets/images/Raoxam.png"),
+                        Image.asset("assets/images/Female.png"),
                         const Padding(
                           padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
                           child: Text("Female",
@@ -203,7 +203,7 @@ class _HomeState extends State<Home> {
                   Padding(
                       padding: const EdgeInsets.all(10),
                       child: Column(children: [
-                        Image.asset("assets/images/shahsha.png"),
+                        Image.asset("assets/images/Hair.png"),
                         const Padding(
                           padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
                           child: Text("Hair",
@@ -217,7 +217,7 @@ class _HomeState extends State<Home> {
                   Padding(
                       padding: const EdgeInsets.all(10),
                       child: Column(children: [
-                        Image.asset("assets/images/shahsha.png"),
+                        Image.asset("assets/images/Nails.png"),
                         const Padding(
                           padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
                           child: Text("Nails",
@@ -231,7 +231,7 @@ class _HomeState extends State<Home> {
                   Padding(
                       padding: const EdgeInsets.all(10),
                       child: Column(children: [
-                        Image.asset("assets/images/shahsha.png"),
+                        Image.asset("assets/images/MakeUp.png"),
                         const Padding(
                           padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
                           child: Text("Make Up",

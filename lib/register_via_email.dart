@@ -19,7 +19,6 @@ class RegisterViaEmail extends StatefulWidget {
 }
 
 class _RegisterViaEmailState extends State<RegisterViaEmail> {
-  bool isLoading = false;
   final storage = LocalStorage('user_data');
   TextEditingController _usernameController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
@@ -51,7 +50,6 @@ class _RegisterViaEmailState extends State<RegisterViaEmail> {
   }
 
   _getUserData(token) async {
-    // isLoading = true;
     var response = await http.post(Global.getUserDataUrl(), headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
@@ -61,7 +59,6 @@ class _RegisterViaEmailState extends State<RegisterViaEmail> {
   }
 
   void signupBtnListener() async {
-    isLoading = true;
     bool emailValidationMsg =
         ValidationHelper.validatePassword(_passController.text);
     try {
@@ -73,18 +70,16 @@ class _RegisterViaEmailState extends State<RegisterViaEmail> {
         if (_passController.text == _confirmpassController.text) {
           var response = await _signup();
           var responseBody = jsonDecode(response.body);
-
+          print(responseBody);
           if (responseBody['status'] == "success") {
-            isLoading = false;
             storage.setItem("access_token", responseBody['access_token']);
             ScaffoldMessenger.of(context).showSnackBar(
                 CustomSnackbar.showSnackbar(responseBody['message']));
             var userData = await _getUserData(responseBody['access_token']);
             var userDataBody = jsonDecode(userData.body);
-            print(userDataBody);
             storage.setItem("user_data", userDataBody);
-            // Navigator.push(
-            //     context, MaterialPageRoute(builder: (context) => const Home()));
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => const Home()));
           } else {
             ScaffoldMessenger.of(context).showSnackBar(
                 CustomSnackbar.showSnackbar(responseBody['login']));
@@ -114,325 +109,317 @@ class _RegisterViaEmailState extends State<RegisterViaEmail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-            body: SingleChildScrollView(
-            child: Stack(children: [
-              Container(
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('assets/images/doodle.png'),
-                      fit: BoxFit.cover),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 50),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Image.asset('assets/images/logo.png'),
-                      const Padding(
-                        padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 20.0),
-                        child: Text(
-                          "Register via email",
-                          style: TextStyle(
-                              fontFamily: "Product Sans",
-                              color: Color(0xff000000),
-                              fontSize: 28.0,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 25, vertical: 10),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(25.0),
-                              topRight: Radius.circular(25.0),
-                              bottomLeft: Radius.circular(25.0),
-                              bottomRight: Radius.circular(25.0),
-                            ),
-                            border: Border.all(
-                              color: const Color(0xFFE60D21),
-                              width: 1,
-                            ),
-                          ),
-                          child: Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
-                                child:
-                                    Image.asset("assets/images/enter-name.png"),
-                              ),
-                              Flexible(
-                                child: Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                                  child: TextField(
-                                    style: const TextStyle(
-                                        fontFamily: "Product Sans",
-                                        fontWeight: FontWeight.normal,
-                                        fontSize: 17.0,
-                                        color: Color(0xff000000)),
-                                    decoration: const InputDecoration(
-                                      hintText: 'Enter Name',
-                                      hintStyle: TextStyle(
-                                          fontFamily: "Product Sans",
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: 17.0,
-                                          color: Color(0xff000000)),
-                                      border: InputBorder.none,
-                                    ),
-                                    keyboardType: TextInputType.emailAddress,
-                                    controller: _usernameController,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 25, vertical: 10),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(25.0),
-                              topRight: Radius.circular(25.0),
-                              bottomLeft: Radius.circular(25.0),
-                              bottomRight: Radius.circular(25.0),
-                            ),
-                            border: Border.all(
-                              color: const Color(0xFFE60D21),
-                              width: 1,
-                            ),
-                          ),
-                          child: Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
-                                child:
-                                    Image.asset("assets/images/email-icon.png"),
-                              ),
-                              Flexible(
-                                child: Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                                  child: TextField(
-                                    style: const TextStyle(
-                                        fontFamily: "Product Sans",
-                                        fontWeight: FontWeight.normal,
-                                        fontSize: 17.0,
-                                        color: Color(0xff000000)),
-                                    decoration: const InputDecoration(
-                                      hintText: 'Enter Email',
-                                      hintStyle: TextStyle(
-                                          fontFamily: "Product Sans",
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: 17.0,
-                                          color: Color(0xff000000)),
-                                      border: InputBorder.none,
-                                    ),
-                                    keyboardType: TextInputType.emailAddress,
-                                    controller: _emailController,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 25, vertical: 10),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(25.0),
-                              topRight: Radius.circular(25.0),
-                              bottomLeft: Radius.circular(25.0),
-                              bottomRight: Radius.circular(25.0),
-                            ),
-                            border: Border.all(
-                              color: const Color(0xFFE60D21),
-                              width: 1,
-                            ),
-                          ),
-                          child: Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
-                                child: Image.asset("assets/images/mobile.png"),
-                              ),
-                              Flexible(
-                                child: Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                                  child: TextField(
-                                    style: const TextStyle(
-                                        fontFamily: "Product Sans",
-                                        fontWeight: FontWeight.normal,
-                                        fontSize: 17.0,
-                                        color: Color(0xff000000)),
-                                    decoration: const InputDecoration(
-                                      hintText: 'Enter Phone no',
-                                      hintStyle: TextStyle(
-                                          fontFamily: "Product Sans",
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: 17.0,
-                                          color: Color(0xff000000)),
-                                      border: InputBorder.none,
-                                    ),
-                                    keyboardType: TextInputType.number,
-                                    controller: _phoneNoController,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 25, vertical: 10),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(25.0),
-                              topRight: Radius.circular(25.0),
-                              bottomLeft: Radius.circular(25.0),
-                              bottomRight: Radius.circular(25.0),
-                            ),
-                            border: Border.all(
-                              color: const Color(0xFFE60D21),
-                              width: 1,
-                            ),
-                          ),
-                          child: Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
-                                child:
-                                    Image.asset("assets/images/password.png"),
-                              ),
-                              Flexible(
-                                child: Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                                  child: TextField(
-                                    style: const TextStyle(
-                                        fontFamily: "Product Sans",
-                                        fontWeight: FontWeight.normal,
-                                        fontSize: 17.0,
-                                        color: Color(0xff000000)),
-                                    decoration: const InputDecoration(
-                                      hintText: 'Enter Password',
-                                      hintStyle: TextStyle(
-                                          fontFamily: "Product Sans",
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: 17.0,
-                                          color: Color(0xff000000)),
-                                      border: InputBorder.none,
-                                    ),
-                                    obscureText: true,
-                                    controller: _passController,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 25, vertical: 10),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(25.0),
-                              topRight: Radius.circular(25.0),
-                              bottomLeft: Radius.circular(25.0),
-                              bottomRight: Radius.circular(25.0),
-                            ),
-                            border: Border.all(
-                              color: const Color(0xFFE60D21),
-                              width: 1,
-                            ),
-                          ),
-                          child: Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
-                                child: Image.asset(
-                                    "assets/images/confrm-password.png"),
-                              ),
-                              Flexible(
-                                child: Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                                  child: TextField(
-                                    style: const TextStyle(
-                                        fontFamily: "Product Sans",
-                                        fontWeight: FontWeight.normal,
-                                        fontSize: 17.0,
-                                        color: Color(0xff000000)),
-                                    decoration: const InputDecoration(
-                                      hintText: 'Confirm Password',
-                                      hintStyle: TextStyle(
-                                          fontFamily: "Product Sans",
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: 17.0,
-                                          color: Color(0xff000000)),
-                                      border: InputBorder.none,
-                                    ),
-                                    obscureText: true,
-                                    controller: _confirmpassController,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 25, vertical: 10),
-                        child: TextButton(
-                          style: TextButton.styleFrom(
-                              padding: const EdgeInsets.fromLTRB(
-                                  131.5, 14.0, 131.5, 14.0),
-                              backgroundColor: const Color(0xFFE60D21),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(25.0),
-                              )),
-                          onPressed: () {
-                            signupBtnListener();
-                          },
-                          child: const Center(
-                            child: Text(
-                              "Register",
-                              style: TextStyle(
-                                  fontFamily: "Product Sans",
-                                  color: Color(0xffffffff),
-                                  fontSize: 17.0,
-                                  fontWeight: FontWeight.normal),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+        body: SingleChildScrollView(
+      child: Stack(children: [
+        Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/images/doodle.png'),
+                fit: BoxFit.cover),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.only(top: 50),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Image.asset('assets/images/logo.png'),
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 20.0),
+                  child: Text(
+                    "Register via email",
+                    style: TextStyle(
+                        fontFamily: "Product Sans",
+                        color: Color(0xff000000),
+                        fontSize: 28.0,
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20.0, 30.0, 0.0, 0.0),
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: const Icon(Icons.arrow_back),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(25.0),
+                        topRight: Radius.circular(25.0),
+                        bottomLeft: Radius.circular(25.0),
+                        bottomRight: Radius.circular(25.0),
+                      ),
+                      border: Border.all(
+                        color: const Color(0xFFE60D21),
+                        width: 1,
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
+                          child: Image.asset("assets/images/enter-name.png"),
+                        ),
+                        Flexible(
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                            child: TextField(
+                              style: const TextStyle(
+                                  fontFamily: "Product Sans",
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 17.0,
+                                  color: Color(0xff000000)),
+                              decoration: const InputDecoration(
+                                hintText: 'Enter Name',
+                                hintStyle: TextStyle(
+                                    fontFamily: "Product Sans",
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 17.0,
+                                    color: Color(0xff000000)),
+                                border: InputBorder.none,
+                              ),
+                              keyboardType: TextInputType.emailAddress,
+                              controller: _usernameController,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-              ),
-            ]),
-          ));
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(25.0),
+                        topRight: Radius.circular(25.0),
+                        bottomLeft: Radius.circular(25.0),
+                        bottomRight: Radius.circular(25.0),
+                      ),
+                      border: Border.all(
+                        color: const Color(0xFFE60D21),
+                        width: 1,
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
+                          child: Image.asset("assets/images/email-icon.png"),
+                        ),
+                        Flexible(
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                            child: TextField(
+                              style: const TextStyle(
+                                  fontFamily: "Product Sans",
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 17.0,
+                                  color: Color(0xff000000)),
+                              decoration: const InputDecoration(
+                                hintText: 'Enter Email',
+                                hintStyle: TextStyle(
+                                    fontFamily: "Product Sans",
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 17.0,
+                                    color: Color(0xff000000)),
+                                border: InputBorder.none,
+                              ),
+                              keyboardType: TextInputType.emailAddress,
+                              controller: _emailController,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(25.0),
+                        topRight: Radius.circular(25.0),
+                        bottomLeft: Radius.circular(25.0),
+                        bottomRight: Radius.circular(25.0),
+                      ),
+                      border: Border.all(
+                        color: const Color(0xFFE60D21),
+                        width: 1,
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
+                          child: Image.asset("assets/images/mobile.png"),
+                        ),
+                        Flexible(
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                            child: TextField(
+                              style: const TextStyle(
+                                  fontFamily: "Product Sans",
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 17.0,
+                                  color: Color(0xff000000)),
+                              decoration: const InputDecoration(
+                                hintText: 'Enter Phone no',
+                                hintStyle: TextStyle(
+                                    fontFamily: "Product Sans",
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 17.0,
+                                    color: Color(0xff000000)),
+                                border: InputBorder.none,
+                              ),
+                              keyboardType: TextInputType.number,
+                              controller: _phoneNoController,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(25.0),
+                        topRight: Radius.circular(25.0),
+                        bottomLeft: Radius.circular(25.0),
+                        bottomRight: Radius.circular(25.0),
+                      ),
+                      border: Border.all(
+                        color: const Color(0xFFE60D21),
+                        width: 1,
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
+                          child: Image.asset("assets/images/password.png"),
+                        ),
+                        Flexible(
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                            child: TextField(
+                              style: const TextStyle(
+                                  fontFamily: "Product Sans",
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 17.0,
+                                  color: Color(0xff000000)),
+                              decoration: const InputDecoration(
+                                hintText: 'Enter Password',
+                                hintStyle: TextStyle(
+                                    fontFamily: "Product Sans",
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 17.0,
+                                    color: Color(0xff000000)),
+                                border: InputBorder.none,
+                              ),
+                              obscureText: true,
+                              controller: _passController,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(25.0),
+                        topRight: Radius.circular(25.0),
+                        bottomLeft: Radius.circular(25.0),
+                        bottomRight: Radius.circular(25.0),
+                      ),
+                      border: Border.all(
+                        color: const Color(0xFFE60D21),
+                        width: 1,
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
+                          child:
+                              Image.asset("assets/images/confrm-password.png"),
+                        ),
+                        Flexible(
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                            child: TextField(
+                              style: const TextStyle(
+                                  fontFamily: "Product Sans",
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 17.0,
+                                  color: Color(0xff000000)),
+                              decoration: const InputDecoration(
+                                hintText: 'Confirm Password',
+                                hintStyle: TextStyle(
+                                    fontFamily: "Product Sans",
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 17.0,
+                                    color: Color(0xff000000)),
+                                border: InputBorder.none,
+                              ),
+                              obscureText: true,
+                              controller: _confirmpassController,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                  child: TextButton(
+                    style: TextButton.styleFrom(
+                        padding:
+                            const EdgeInsets.fromLTRB(131.5, 14.0, 131.5, 14.0),
+                        backgroundColor: const Color(0xFFE60D21),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                        )),
+                    onPressed: () {
+                      signupBtnListener();
+                    },
+                    child: const Center(
+                      child: Text(
+                        "Register",
+                        style: TextStyle(
+                            fontFamily: "Product Sans",
+                            color: Color(0xffffffff),
+                            fontSize: 17.0,
+                            fontWeight: FontWeight.normal),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(20.0, 30.0, 0.0, 0.0),
+          child: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back),
+          ),
+        ),
+      ]),
+    ));
   }
 }
