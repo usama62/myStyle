@@ -4,5 +4,11 @@
         "english" : "Inglés",
         "spanish" : "Español"
     },
-    "heading" : "Mi estilo"
+    "about_us": {
+        "heading" : "Mi estilo",
+        "para1" : "Las mujeres y los hombres expresan su belleza de diferentes maneras y han logrado captar la atención del ser humano, cuando se trata de uñas, cortes de cabello y estilo de maquillaje son los mejores para expresar.",
+        "para2" : "My Style App es la aplicación de redes sociales definitiva donde las mujeres y los hombres tienen la libertad de expresar la belleza, compartir y cargar fotos, videos, peinados, cortes de cabello, maquillaje, estilo e incluso su simplicidad sin maquillaje.",
+        "para3" : "La plataforma My Style te permite interactuar en todo el mundo y compartir en todo el mundo lo mismo que te hace sentir genial. La aplicación My Style es tuya para mostrar tu talento, pasión y más.",
+        "btn_text" : "Próximo"
+    }
 }

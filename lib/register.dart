@@ -115,15 +115,23 @@ class _RegisterState extends State<Register> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(25.0),
                       )),
-                  onPressed: () {
+                  onPressed: () async {
                     //Facebook Auth
-                    FacebookAuth.instance
-                        .login(permissions: ["email"]).then((value) {
-                      FacebookAuth.instance.getUserData().then((userData) {
-                        setState(() {
-                          _userObj = userData;
+                    FacebookAuth auth = FacebookAuth.instance;
+                    auth.logOut();
+                    auth.login(permissions: [
+                      "email",
+                      "public_profile",
+                      "user_friends"
+                    ]).then((value) async {
+                      print(value.message);
+                      if (await auth.accessToken != null) {
+                        FacebookAuth.instance.getUserData().then((userData) {
+                          setState(() {
+                            _userObj = userData;
+                          });
                         });
-                      });
+                      } else {}
                     });
                   },
                   child: Row(children: [

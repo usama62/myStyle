@@ -70,7 +70,6 @@ class _RegisterViaEmailState extends State<RegisterViaEmail> {
         if (_passController.text == _confirmpassController.text) {
           var response = await _signup();
           var responseBody = jsonDecode(response.body);
-          print(responseBody);
           if (responseBody['status'] == "success") {
             storage.setItem("access_token", responseBody['access_token']);
             ScaffoldMessenger.of(context).showSnackBar(
@@ -103,6 +102,8 @@ class _RegisterViaEmailState extends State<RegisterViaEmail> {
       }
     } catch (e) {
       print(e);
+      ScaffoldMessenger.of(context)
+          .showSnackBar(CustomSnackbar.showSnackbar(e.toString()));
     }
   }
 
