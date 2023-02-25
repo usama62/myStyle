@@ -124,7 +124,6 @@ class _RegisterState extends State<Register> {
                       "public_profile",
                       "user_friends"
                     ]).then((value) async {
-                      print(value.message);
                       if (await auth.accessToken != null) {
                         FacebookAuth.instance.getUserData().then((userData) {
                           setState(() {
