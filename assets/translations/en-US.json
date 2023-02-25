@@ -10,5 +10,23 @@
         "para2" : "My Style App is the ultimate social media app where women and men have the freedom to express the beauty, sharing and uploading photos, videos, hair style haircuts make up style and even their simplicity without make up.",
         "para3" : "My Style platform aloud you to interact around the world and sharing around the world same thing that makes you feel great. My Style app is yours to show your talent, passion and more.",
         "btn_text" : "Next"
+    },
+    "entry_option": {
+        "register" : "Register",
+        "signin" : "Sign In"
+    },
+    "register": {
+        "heading" : "Register Here",
+        "email" : "Register via email",
+        "number" : "Register via number",
+        "fb" : "Register via Facebook"
+    },
+    "registerviaemail": {
+        "heading" : "Register via email",
+        "name" : "Enter Name",
+        "email" : "Enter Email",
+        "phone" : "Enter Phone no",
+        "pass" : "Enter Password",
+        "cpass" : "Confirm Password"
     }
 }

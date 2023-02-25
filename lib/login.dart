@@ -13,8 +13,6 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  bool _isLoggedIn = false;
-  Map _userObj = {};
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -122,9 +120,7 @@ class _LoginState extends State<Login> {
                     FacebookAuth.instance
                         .login(permissions: ["email"]).then((value) {
                       FacebookAuth.instance.getUserData().then((userData) {
-                        setState(() {
-                          _userObj = userData;
-                        });
+                        setState(() {});
                       });
                     });
                   },

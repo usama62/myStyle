@@ -1,12 +1,11 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:localstorage/localstorage.dart';
-import 'package:my_style/custom/loader.dart';
-import 'package:my_style/utils/helpers/validation_helper.dart';
 import 'constants/global.dart';
 import 'custom/custom_snackbar.dart';
 import 'package:http/http.dart' as http;
-
+import 'package:easy_localization/easy_localization.dart';
 import 'home.dart';
 
 class RegisterViaEmail extends StatefulWidget {
@@ -59,14 +58,11 @@ class _RegisterViaEmailState extends State<RegisterViaEmail> {
   }
 
   void signupBtnListener() async {
-    bool emailValidationMsg =
-        ValidationHelper.validatePassword(_passController.text);
     try {
       if (_emailController.text.isNotEmpty &&
           _phoneNoController.text.isNotEmpty &&
           _passController.text.isNotEmpty &&
-          _usernameController.text.isNotEmpty &&
-          emailValidationMsg == true) {
+          _usernameController.text.isNotEmpty) {
         if (_passController.text == _confirmpassController.text) {
           var response = await _signup();
           var responseBody = jsonDecode(response.body);
@@ -91,8 +87,7 @@ class _RegisterViaEmailState extends State<RegisterViaEmail> {
         if (_usernameController.text.isEmpty) {
           ScaffoldMessenger.of(context).showSnackBar(
               CustomSnackbar.showSnackbar('Please enter valid username!'));
-        } else if (_passController.text.isEmpty ||
-            emailValidationMsg == false) {
+        } else if (_passController.text.isEmpty) {
           ScaffoldMessenger.of(context).showSnackBar(
               CustomSnackbar.showSnackbar('Please enter valid password!'));
         } else {
@@ -124,16 +119,16 @@ class _RegisterViaEmailState extends State<RegisterViaEmail> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Image.asset('assets/images/logo.png'),
-                const Padding(
-                  padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 20.0),
-                  child: Text(
-                    "Register via email",
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 20.0),
+                  child: const Text(
+                    "registerviaemail.heading",
                     style: TextStyle(
                         fontFamily: "Product Sans",
                         color: Color(0xff000000),
                         fontSize: 28.0,
                         fontWeight: FontWeight.bold),
-                  ),
+                  ).tr(),
                 ),
                 Padding(
                   padding:
@@ -166,9 +161,9 @@ class _RegisterViaEmailState extends State<RegisterViaEmail> {
                                   fontWeight: FontWeight.normal,
                                   fontSize: 17.0,
                                   color: Color(0xff000000)),
-                              decoration: const InputDecoration(
-                                hintText: 'Enter Name',
-                                hintStyle: TextStyle(
+                              decoration: InputDecoration(
+                                hintText: 'registerviaemail.name'.tr(),
+                                hintStyle: const TextStyle(
                                     fontFamily: "Product Sans",
                                     fontWeight: FontWeight.normal,
                                     fontSize: 17.0,
@@ -215,9 +210,9 @@ class _RegisterViaEmailState extends State<RegisterViaEmail> {
                                   fontWeight: FontWeight.normal,
                                   fontSize: 17.0,
                                   color: Color(0xff000000)),
-                              decoration: const InputDecoration(
-                                hintText: 'Enter Email',
-                                hintStyle: TextStyle(
+                              decoration: InputDecoration(
+                                hintText: 'registerviaemail.email'.tr(),
+                                hintStyle: const TextStyle(
                                     fontFamily: "Product Sans",
                                     fontWeight: FontWeight.normal,
                                     fontSize: 17.0,
@@ -258,23 +253,30 @@ class _RegisterViaEmailState extends State<RegisterViaEmail> {
                         Flexible(
                           child: Padding(
                             padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                            child: TextField(
+                            child: IntlPhoneField(
                               style: const TextStyle(
                                   fontFamily: "Product Sans",
                                   fontWeight: FontWeight.normal,
                                   fontSize: 17.0,
                                   color: Color(0xff000000)),
-                              decoration: const InputDecoration(
-                                hintText: 'Enter Phone no',
-                                hintStyle: TextStyle(
+                              decoration: InputDecoration(
+                                hintText: 'registerviaemail.phone'.tr(),
+                                hintStyle: const TextStyle(
                                     fontFamily: "Product Sans",
                                     fontWeight: FontWeight.normal,
                                     fontSize: 17.0,
                                     color: Color(0xff000000)),
                                 border: InputBorder.none,
+                                counterText: "",
                               ),
                               keyboardType: TextInputType.number,
                               controller: _phoneNoController,
+                              onChanged: (phone) {
+                                print(phone.completeNumber);
+                              },
+                              onCountryChanged: (country) {
+                                print('Country changed to: ' + country.name);
+                              },
                             ),
                           ),
                         ),
@@ -313,9 +315,9 @@ class _RegisterViaEmailState extends State<RegisterViaEmail> {
                                   fontWeight: FontWeight.normal,
                                   fontSize: 17.0,
                                   color: Color(0xff000000)),
-                              decoration: const InputDecoration(
-                                hintText: 'Enter Password',
-                                hintStyle: TextStyle(
+                              decoration: InputDecoration(
+                                hintText: 'registerviaemail.pass'.tr(),
+                                hintStyle: const TextStyle(
                                     fontFamily: "Product Sans",
                                     fontWeight: FontWeight.normal,
                                     fontSize: 17.0,
@@ -363,9 +365,9 @@ class _RegisterViaEmailState extends State<RegisterViaEmail> {
                                   fontWeight: FontWeight.normal,
                                   fontSize: 17.0,
                                   color: Color(0xff000000)),
-                              decoration: const InputDecoration(
-                                hintText: 'Confirm Password',
-                                hintStyle: TextStyle(
+                              decoration: InputDecoration(
+                                hintText: 'registerviaemail.cpass'.tr(),
+                                hintStyle: const TextStyle(
                                     fontFamily: "Product Sans",
                                     fontWeight: FontWeight.normal,
                                     fontSize: 17.0,

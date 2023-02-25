@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:localstorage/localstorage.dart';
-import 'constants/global.dart';
 import 'home.dart';
-import 'verification_code.dart';
-import 'package:http/http.dart' as http;
 
 enum AlertTypeEnum { email, sms }
 
@@ -27,40 +24,15 @@ class _NewPaswordState extends State<NewPasword> {
     super.initState();
   }
 
-  HandleSendCode() async {
-    var type = "";
+  handleSendCode() async {
     if (_alertTypeEnum == AlertTypeEnum.email) {
-      type = "email";
-    } else {
-      type = "number";
-    }
-
-    var response = await _forgetPass(type);
+    } else {}
 
     // print();
     // Navigator.push(
     //   context,
     //   MaterialPageRoute(builder: (context) => const VerificationCode()),
     // );
-  }
-
-  _forgetPass(type) async {
-    var data = storage.getItem('user_data');
-    print(type);
-
-    Map<String, String> body = {
-      "value": data['email'],
-      "type": type,
-    };
-
-    // var response = await http.post(Global.getForgetPasswordUrl(),
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //       'Accept': 'application/json',
-    //       'Authorization': 'Bearer $token',
-    //     },
-    //     body: body);
-    // return response;
   }
 
   @override
@@ -150,7 +122,7 @@ class _NewPaswordState extends State<NewPasword> {
                         borderRadius: BorderRadius.circular(25.0),
                       )),
                   onPressed: () {
-                    // HandleSendCode();
+                    handleSendCode();
                     Navigator.push(
                       context,
                       MaterialPageRoute(

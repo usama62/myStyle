@@ -1,6 +1,7 @@
 import 'login.dart';
 import 'register.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class EntryOption extends StatefulWidget {
   const EntryOption({
@@ -43,15 +44,15 @@ class _EntryOptionState extends State<EntryOption> {
                       MaterialPageRoute(builder: (context) => const Register()),
                     );
                   },
-                  child: const Center(
-                    child: Text(
-                      "Register",
+                  child: Center(
+                    child: const Text(
+                      "entry_option.register",
                       style: TextStyle(
                           fontFamily: "Product Sans",
                           color: Color(0xffffffff),
                           fontSize: 17.0,
                           fontWeight: FontWeight.normal),
-                    ),
+                    ).tr(),
                   ),
                 ),
               ),
@@ -72,15 +73,15 @@ class _EntryOptionState extends State<EntryOption> {
                       MaterialPageRoute(builder: (context) => const Login()),
                     );
                   },
-                  child: const Center(
-                    child: Text(
-                      "Sign In",
+                  child: Center(
+                    child: const Text(
+                      "entry_option.signin",
                       style: TextStyle(
                           fontFamily: "Product Sans",
                           color: Color(0xffffffff),
                           fontSize: 17.0,
                           fontWeight: FontWeight.normal),
-                    ),
+                    ).tr(),
                   ),
                 ),
               ),

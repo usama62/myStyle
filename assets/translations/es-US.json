@@ -10,5 +10,23 @@
         "para2" : "My Style App es la aplicación de redes sociales definitiva donde las mujeres y los hombres tienen la libertad de expresar la belleza, compartir y cargar fotos, videos, peinados, cortes de cabello, maquillaje, estilo e incluso su simplicidad sin maquillaje.",
         "para3" : "La plataforma My Style te permite interactuar en todo el mundo y compartir en todo el mundo lo mismo que te hace sentir genial. La aplicación My Style es tuya para mostrar tu talento, pasión y más.",
         "btn_text" : "Próximo"
+    },
+    "entry_option": {
+        "register" : "Registro",
+        "signin" : "Iniciar sesión"
+    },
+    "register": {
+        "heading" : "Registrar aquí",
+        "email" : "Regístrese por correo electrónico",
+        "number" : "Regístrese a través del número",
+        "fb" : "Regístrese a través de Facebook"
+    },
+    "registerviaemail": {
+        "heading" : "Regístrese por correo electrónico",
+        "name" : "Ingrese su nombre",
+        "email" : "Ingrese correo electrónico",
+        "phone" : "Ingrese el número de teléfono",
+        "pass" : "Introducir la contraseña",
+        "cpass" : "confirmar Contraseña"
     }
 }

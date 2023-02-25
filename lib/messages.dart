@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_style/payments.dart';
 
 class Message extends StatefulWidget {
   const Message({

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 
-import 'newPassword.dart';
+import 'new_password.dart';
 
 class VerificationCode extends StatefulWidget {
   const VerificationCode({

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_style/login.dart';
 import 'package:my_style/splash.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'my_home.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,7 +22,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  late Locale _locale;
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_style/home.dart';
 import 'package:my_style/plans.dart';
 
 List _images = [

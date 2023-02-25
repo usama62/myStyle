@@ -17,38 +17,13 @@ class _ForgotPaswordState extends State<ForgotPasword> {
   final storage = LocalStorage('user_data');
 
   handleSendCode() async {
-    var type = "";
     if (_alertTypeEnum == AlertTypeEnum.email) {
-      type = "email";
-    } else {
-      type = "number";
-    }
-
-    var response = await _forgetPass(type);
-
+    } else {}
     // print(response);
     // Navigator.push(
     //   context,
     //   MaterialPageRoute(builder: (context) => const VerificationCode()),
     // );
-  }
-
-  _forgetPass(type) async {
-    var data = storage.getItem('user_data');
-
-    Map<String, String> body = {
-      "value": data['email'],
-      "type": type,
-    };
-
-    // var response = await http.post(Global.getForgetPasswordUrl(),
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //       'Accept': 'application/json',
-    //       'Authorization': 'Bearer $token',
-    //     },
-    //     body: body);
-    // return response;
   }
 
   @override

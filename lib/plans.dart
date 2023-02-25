@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_style/payments.dart';
-import 'package:my_style/profile.dart';
 
 class Plans extends StatefulWidget {
   const Plans({

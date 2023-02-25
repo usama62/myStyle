@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_style/payments.dart';
-import 'package:my_style/profile.dart';
 
 class NewsLetter extends StatefulWidget {
   const NewsLetter({
@@ -47,16 +46,16 @@ class _NewsLetterState extends State<NewsLetter> {
                         padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
                         child: Image.asset("assets/images/email-icon.png"),
                       ),
-                      Flexible(
+                      const Flexible(
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                          padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                           child: TextField(
-                            style: const TextStyle(
+                            style: TextStyle(
                                 fontFamily: "Product Sans",
                                 fontWeight: FontWeight.normal,
                                 fontSize: 17.0,
                                 color: Color(0xff000000)),
-                            decoration: const InputDecoration(
+                            decoration: InputDecoration(
                               hintText: 'Enter Email',
                               hintStyle: TextStyle(
                                   fontFamily: "Product Sans",

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_style/profile.dart';
-
 import 'add_card.dart';
 
 class Payments extends StatefulWidget {

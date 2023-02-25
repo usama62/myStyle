@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'register_via_email.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class Register extends StatefulWidget {
   const Register({
@@ -12,8 +13,6 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  Map _userObj = {};
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,16 +28,16 @@ class _RegisterState extends State<Register> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Image.asset('assets/images/logo.png'),
-              const Padding(
-                padding: EdgeInsets.fromLTRB(0.0, 50.0, 0.0, 5.0),
-                child: Text(
-                  "Register Here",
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0.0, 50.0, 0.0, 5.0),
+                child: const Text(
+                  "register.heading",
                   style: TextStyle(
                       fontFamily: "Product Sans",
                       color: Color(0xff000000),
                       fontSize: 28.0,
                       fontWeight: FontWeight.bold),
-                ),
+                ).tr(),
               ),
               Padding(
                 padding:
@@ -58,18 +57,20 @@ class _RegisterState extends State<Register> {
                     );
                   },
                   child: Row(children: [
+                    const Spacer(),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(80, 5, 10, 5),
+                      padding: const EdgeInsets.fromLTRB(0, 5, 10, 5),
                       child: Image.asset("assets/images/email-icon.png"),
                     ),
                     const Text(
-                      "Register via email",
+                      "register.email",
                       style: TextStyle(
                           fontFamily: "Product Sans",
                           color: Color(0xff000000),
                           fontSize: 17.0,
                           fontWeight: FontWeight.normal),
-                    ),
+                    ).tr(),
+                    const Spacer(),
                   ]),
                 ),
               ),
@@ -89,19 +90,21 @@ class _RegisterState extends State<Register> {
               //       //   MaterialPageRoute(builder: (context) => const Aboutus()),
               //       // );
               //     },
-              //     child: Row(children: [
+              //      child: Row(children: [
+              //      const Spacer(),
               //       Padding(
               //         padding: const EdgeInsets.fromLTRB(80, 5, 10, 5),
               //         child: Image.asset("assets/images/mobile.png"),
               //       ),
               //       const Text(
-              //         "Register via number",
+              //         "register.number",
               //         style: TextStyle(
               //             fontFamily: "Product Sans",
               //             color: Color(0xff000000),
               //             fontSize: 17.0,
               //             fontWeight: FontWeight.normal),
-              //       ),
+              //       ).tr(),
+              // const Spacer(),
               //     ]),
               //   ),
               // ),
@@ -126,26 +129,26 @@ class _RegisterState extends State<Register> {
                     ]).then((value) async {
                       if (await auth.accessToken != null) {
                         FacebookAuth.instance.getUserData().then((userData) {
-                          setState(() {
-                            _userObj = userData;
-                          });
+                          setState(() {});
                         });
                       } else {}
                     });
                   },
                   child: Row(children: [
+                    const Spacer(),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(80, 5, 10, 5),
+                      padding: const EdgeInsets.fromLTRB(0, 5, 10, 5),
                       child: Image.asset("assets/images/facebook.png"),
                     ),
                     const Text(
-                      "Register via Facebook",
+                      "register.fb",
                       style: TextStyle(
                           fontFamily: "Product Sans",
                           color: Color(0xff000000),
                           fontSize: 17.0,
                           fontWeight: FontWeight.normal),
-                    ),
+                    ).tr(),
+                    const Spacer(),
                   ]),
                 ),
               ),
