@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'login_via_email.dart';
 import 'login_via_number.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class Login extends StatefulWidget {
   const Login({
@@ -28,16 +29,16 @@ class _LoginState extends State<Login> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Image.asset('assets/images/logo.png'),
-              const Padding(
-                padding: EdgeInsets.fromLTRB(0.0, 50.0, 0.0, 5.0),
-                child: Text(
-                  "Sign In Here",
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0.0, 50.0, 0.0, 5.0),
+                child: const Text(
+                  "login.heading",
                   style: TextStyle(
                       fontFamily: "Product Sans",
                       color: Color(0xff000000),
                       fontSize: 28.0,
                       fontWeight: FontWeight.bold),
-                ),
+                ).tr(),
               ),
               Padding(
                 padding:
@@ -57,18 +58,20 @@ class _LoginState extends State<Login> {
                     );
                   },
                   child: Row(children: [
+                    const Spacer(),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(80, 5, 10, 5),
+                      padding: const EdgeInsets.fromLTRB(0, 5, 10, 5),
                       child: Image.asset("assets/images/email-icon.png"),
                     ),
                     const Text(
-                      "Sign In via email",
+                      "login.email",
                       style: TextStyle(
                           fontFamily: "Product Sans",
                           color: Color(0xff000000),
                           fontSize: 17.0,
                           fontWeight: FontWeight.normal),
-                    ),
+                    ).tr(),
+                    const Spacer(),
                   ]),
                 ),
               ),
@@ -90,18 +93,20 @@ class _LoginState extends State<Login> {
                     );
                   },
                   child: Row(children: [
+                    const Spacer(),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(80, 5, 10, 5),
+                      padding: const EdgeInsets.fromLTRB(0, 5, 10, 5),
                       child: Image.asset("assets/images/mobile.png"),
                     ),
                     const Text(
-                      "Sign In via number",
+                      "login.number",
                       style: TextStyle(
                           fontFamily: "Product Sans",
                           color: Color(0xff000000),
                           fontSize: 17.0,
                           fontWeight: FontWeight.normal),
-                    ),
+                    ).tr(),
+                    const Spacer(),
                   ]),
                 ),
               ),
@@ -125,18 +130,20 @@ class _LoginState extends State<Login> {
                     });
                   },
                   child: Row(children: [
+                    const Spacer(),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(80, 5, 10, 5),
+                      padding: const EdgeInsets.fromLTRB(0, 5, 10, 5),
                       child: Image.asset("assets/images/facebook.png"),
                     ),
                     const Text(
-                      "Sign In via Facebook",
+                      "login.fb",
                       style: TextStyle(
                           fontFamily: "Product Sans",
                           color: Color(0xff000000),
                           fontSize: 17.0,
                           fontWeight: FontWeight.normal),
-                    ),
+                    ).tr(),
+                    const Spacer(),
                   ]),
                 ),
               ),

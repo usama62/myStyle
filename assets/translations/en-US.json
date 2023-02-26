@@ -28,5 +28,23 @@
         "phone" : "Enter Phone no",
         "pass" : "Enter Password",
         "cpass" : "Confirm Password"
+    },   
+    "login": {
+        "heading" : "Sign In Here",
+        "email" : "Sign In via email",
+        "number" : "Sign In via number",
+        "fb" : "Sign In via Facebook"
+    },
+    "loginviaemail": {
+        "heading" : "Sign in via email",
+        "email" : "Enter Email",
+        "pass" : "Enter Password",
+        "forgotpass" : "Forget password?",
+        "btn_text" : "Sign In"
+    },
+    "forgetPass": {
+        "heading" : "Forget Password",
+        "email" : "Via Email",
+        "btn_text" : "Send Code"
     }
 }

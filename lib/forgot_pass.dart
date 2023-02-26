@@ -1,5 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:localstorage/localstorage.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:http/http.dart' as http;
+import 'constants/global.dart';
+import 'custom/custom_snackbar.dart';
 
 enum AlertTypeEnum { email, sms }
 
@@ -16,14 +22,80 @@ class _ForgotPaswordState extends State<ForgotPasword> {
   AlertTypeEnum? _alertTypeEnum;
   final storage = LocalStorage('user_data');
 
+  _getCode(access_token, user_data, type) async {
+    var value = "";
+    if (type == "email") {
+      value = user_data["email"];
+    } else {
+      value = "0 $user_data['mobile_no']";
+    }
+    Map<String, String> body = {
+      "value": value,
+      "type": type,
+    };
+
+    var response = await http.post(Global.getForgetPasswordUrl(),
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $access_token'
+        },
+        body: body);
+
+    return response;
+  }
+
   handleSendCode() async {
+    var accessToken;
+    var userData;
+    var type;
+
+    if (storage.getItem("access_token") != null) {
+      accessToken = storage.getItem('access_token');
+    }
+    if (storage.getItem("user_data") != null) {
+      userData = storage.getItem('user_data');
+    }
     if (_alertTypeEnum == AlertTypeEnum.email) {
-    } else {}
-    // print(response);
-    // Navigator.push(
-    //   context,
-    //   MaterialPageRoute(builder: (context) => const VerificationCode()),
-    // );
+      type = "email";
+    } else {
+      type = "Number";
+    }
+    var response = await _getCode(accessToken, userData["data"], type);
+    var responseBody = jsonDecode(response.body);
+
+    if (responseBody["status"] == "success") {
+      showDialog<String>(
+          context: context,
+          builder: (BuildContext context) => AlertDialog(
+                title: const Text('Success', textAlign: TextAlign.center),
+                content: const Text(
+                  'A new Password has been sent to your registered Email/Number.',
+                  textAlign: TextAlign.center,
+                ),
+                actions: <Widget>[
+                  Center(
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                          padding:
+                              const EdgeInsets.fromLTRB(50, 14.0, 50, 14.0),
+                          backgroundColor: const Color(0xFFE60D21),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25.0),
+                          )),
+                      onPressed: () => Navigator.pop(context, 'OK'),
+                      child: const Text(
+                        'OK',
+                        style: TextStyle(
+                            fontFamily: "Product Sans",
+                            color: Color(0xffffffff),
+                            fontSize: 17.0,
+                            fontWeight: FontWeight.normal),
+                      ),
+                    ),
+                  ),
+                ],
+              ));
+    }
   }
 
   @override
@@ -41,24 +113,25 @@ class _ForgotPaswordState extends State<ForgotPasword> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Image.asset('assets/images/logo.png'),
-              const Padding(
-                padding: EdgeInsets.fromLTRB(0.0, 50.0, 0.0, 20.0),
-                child: Text(
-                  "Forget Password",
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0.0, 50.0, 0.0, 20.0),
+                child: const Text(
+                  "forgetPass.heading",
                   style: TextStyle(
                       fontFamily: "Product Sans",
                       color: Color(0xff000000),
                       fontSize: 28.0,
                       fontWeight: FontWeight.bold),
-                ),
+                ).tr(),
               ),
               RadioListTile(
-                title: const Text("Via Email",
-                    style: TextStyle(
-                        fontFamily: "Product Sans",
-                        fontWeight: FontWeight.normal,
-                        fontSize: 17.0,
-                        color: Color(0xFF000000))),
+                title: const Text("forgetPass.email",
+                        style: TextStyle(
+                            fontFamily: "Product Sans",
+                            fontWeight: FontWeight.normal,
+                            fontSize: 17.0,
+                            color: Color(0xFF000000)))
+                    .tr(),
                 value: AlertTypeEnum.email,
                 groupValue: _alertTypeEnum,
                 activeColor: const Color(0xFFE60D21),
@@ -86,7 +159,7 @@ class _ForgotPaswordState extends State<ForgotPasword> {
               // ),
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: TextButton(
                   style: TextButton.styleFrom(
                       padding:
@@ -98,15 +171,15 @@ class _ForgotPaswordState extends State<ForgotPasword> {
                   onPressed: () {
                     handleSendCode();
                   },
-                  child: const Center(
-                    child: Text(
-                      "Send Code",
+                  child: Center(
+                    child: const Text(
+                      "forgetPass.btn_text",
                       style: TextStyle(
                           fontFamily: "Product Sans",
                           color: Color(0xffffffff),
                           fontSize: 17.0,
                           fontWeight: FontWeight.normal),
-                    ),
+                    ).tr(),
                   ),
                 ),
               ),

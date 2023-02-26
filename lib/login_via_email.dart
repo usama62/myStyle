@@ -7,6 +7,7 @@ import 'custom/custom_snackbar.dart';
 import 'forgot_pass.dart';
 import 'package:http/http.dart' as http;
 import 'home.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class LoginViaEmail extends StatefulWidget {
   const LoginViaEmail({
@@ -48,11 +49,11 @@ class _LoginViaEmailState extends State<LoginViaEmail> {
     try {
       if (_emailController.text.isNotEmpty &&
           _passController.text.isNotEmpty &&
-          passValidationMsg == true) {
+          emailValidationMsg == "success") {
         var response = await _signin();
         var responseBody = jsonDecode(response.body);
 
-        if (responseBody) {
+        if (responseBody['status'] == "success") {
           ScaffoldMessenger.of(context).showSnackBar(
               CustomSnackbar.showSnackbar("Logged IN Successfully!"));
           storage.setItem('access_token', responseBody['access_token']);
@@ -92,16 +93,16 @@ class _LoginViaEmailState extends State<LoginViaEmail> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Image.asset('assets/images/logo.png'),
-                const Padding(
-                  padding: EdgeInsets.fromLTRB(0.0, 50.0, 0.0, 20.0),
-                  child: Text(
-                    "Sign in via email",
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0.0, 50.0, 0.0, 20.0),
+                  child: const Text(
+                    "loginviaemail.heading",
                     style: TextStyle(
                         fontFamily: "Product Sans",
                         color: Color(0xff000000),
                         fontSize: 28.0,
                         fontWeight: FontWeight.bold),
-                  ),
+                  ).tr(),
                 ),
                 Padding(
                   padding:
@@ -134,9 +135,9 @@ class _LoginViaEmailState extends State<LoginViaEmail> {
                                   fontWeight: FontWeight.normal,
                                   fontSize: 17.0,
                                   color: Color(0xff000000)),
-                              decoration: const InputDecoration(
-                                hintText: 'Enter Email',
-                                hintStyle: TextStyle(
+                              decoration: InputDecoration(
+                                hintText: 'loginviaemail.email'.tr(),
+                                hintStyle: const TextStyle(
                                     fontFamily: "Product Sans",
                                     fontWeight: FontWeight.normal,
                                     fontSize: 17.0,
@@ -183,9 +184,9 @@ class _LoginViaEmailState extends State<LoginViaEmail> {
                                   fontWeight: FontWeight.normal,
                                   fontSize: 17.0,
                                   color: Color(0xff000000)),
-                              decoration: const InputDecoration(
-                                hintText: 'Enter Password',
-                                hintStyle: TextStyle(
+                              decoration: InputDecoration(
+                                hintText: 'loginviaemail.pass'.tr(),
+                                hintStyle: const TextStyle(
                                     fontFamily: "Product Sans",
                                     fontWeight: FontWeight.normal,
                                     fontSize: 17.0,
@@ -204,14 +205,14 @@ class _LoginViaEmailState extends State<LoginViaEmail> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
                   child: GestureDetector(
-                    child: const Text("Forget password?",
+                    child: const Text("loginviaemail.forgotpass",
                         style: TextStyle(
                           fontFamily: "Product Sans",
                           color: Color(0xff000000),
                           fontSize: 14.0,
                           fontWeight: FontWeight.normal,
                           decoration: TextDecoration.underline,
-                        )),
+                        )).tr(),
                     onTap: () {
                       Navigator.push(
                           context,
@@ -234,15 +235,15 @@ class _LoginViaEmailState extends State<LoginViaEmail> {
                     onPressed: () {
                       signinBtnListener();
                     },
-                    child: const Center(
-                      child: Text(
-                        "Sign In",
+                    child: Center(
+                      child: const Text(
+                        "loginviaemail.btn_text",
                         style: TextStyle(
                             fontFamily: "Product Sans",
                             color: Color(0xffffffff),
                             fontSize: 17.0,
                             fontWeight: FontWeight.normal),
-                      ),
+                      ).tr(),
                     ),
                   ),
                 ),

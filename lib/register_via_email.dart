@@ -6,7 +6,7 @@ import 'constants/global.dart';
 import 'custom/custom_snackbar.dart';
 import 'package:http/http.dart' as http;
 import 'package:easy_localization/easy_localization.dart';
-import 'home.dart';
+import 'login_via_email.dart';
 
 class RegisterViaEmail extends StatefulWidget {
   const RegisterViaEmail({
@@ -73,11 +73,12 @@ class _RegisterViaEmailState extends State<RegisterViaEmail> {
             var userData = await _getUserData(responseBody['access_token']);
             var userDataBody = jsonDecode(userData.body);
             storage.setItem("user_data", userDataBody);
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => const Home()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const LoginViaEmail()));
           } else {
+            print(responseBody);
             ScaffoldMessenger.of(context).showSnackBar(
-                CustomSnackbar.showSnackbar(responseBody['login']));
+                CustomSnackbar.showSnackbar(responseBody['data']));
           }
         } else {
           ScaffoldMessenger.of(context).showSnackBar(

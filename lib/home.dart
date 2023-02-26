@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:insta_like_button/insta_like_button.dart';
+import 'package:localstorage/localstorage.dart';
 import 'package:my_style/profile.dart';
 
 class Home extends StatefulWidget {
@@ -13,6 +14,15 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   var index = 0;
+  final storage = LocalStorage('user_data');
+
+  @override
+  void initState() {
+    if (storage.getItem("user_data") != null) {
+      var initialData = storage.getItem('user_data');
+    }
+    super.initState();
+  }
 
   _navigateToScreens(index) {
     // print(index);

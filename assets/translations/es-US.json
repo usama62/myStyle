@@ -28,5 +28,23 @@
         "phone" : "Ingrese el número de teléfono",
         "pass" : "Introducir la contraseña",
         "cpass" : "confirmar Contraseña"
+    },
+    "login": {
+        "heading" : "Firme aquí",
+        "email" : "Iniciar sesión por correo electrónico",
+        "number" : "Iniciar sesión a través del número",
+        "fb" : "Iniciar sesión a través de Facebook"
+    },
+    "loginviaemail": {
+        "heading" : "Iniciar sesión a través de Facebook",
+        "email" : "Ingrese correo electrónico",
+        "pass" : "Introducir la contraseña",
+        "forgotpass" : "¿Has olvidado tu contraseña?",
+        "btn_text" : "Iniciar sesión"
+    },
+    "forgetPass": {
+        "heading" : "Contraseña olvidada",
+        "email" : "Vía correo electrónico",
+        "btn_text" : "Enviar código"
     }
 }
