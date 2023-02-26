@@ -5,7 +5,6 @@ import 'package:localstorage/localstorage.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:http/http.dart' as http;
 import 'constants/global.dart';
-import 'custom/custom_snackbar.dart';
 
 enum AlertTypeEnum { email, sms }
 
