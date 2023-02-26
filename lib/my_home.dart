@@ -63,8 +63,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     MaterialPageRoute(builder: (context) => const Aboutus()),
                   );
                 },
-                child: Center(
-                  child: const Text(
+                child: Row(children: [
+                  const Spacer(),
+                  const Text(
                     "lang_selection.english",
                     style: TextStyle(
                         fontFamily: "Product Sans",
@@ -72,7 +73,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         fontSize: 17.0,
                         fontWeight: FontWeight.normal),
                   ).tr(),
-                ),
+                  const Spacer(),
+                ]),
               ),
             ),
             Padding(
@@ -94,8 +96,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     MaterialPageRoute(builder: (context) => const Aboutus()),
                   );
                 },
-                child: Center(
-                  child: const Text(
+                child: Row(children: [
+                  const Spacer(),
+                  const Text(
                     "lang_selection.spanish",
                     style: TextStyle(
                         fontFamily: "Product Sans",
@@ -103,7 +106,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         fontSize: 17.0,
                         fontWeight: FontWeight.normal),
                   ).tr(),
-                ),
+                  const Spacer(),
+                ]),
               ),
             ),
           ],

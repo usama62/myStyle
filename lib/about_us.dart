@@ -95,8 +95,9 @@ class _AboutusState extends State<Aboutus> {
                             builder: (context) => const EntryOption()),
                       );
                     },
-                    child: Center(
-                      child: const Text(
+                    child: Row(children: [
+                      const Spacer(),
+                      const Text(
                         "about_us.btn_text",
                         style: TextStyle(
                             fontFamily: "Product Sans",
@@ -104,7 +105,8 @@ class _AboutusState extends State<Aboutus> {
                             fontSize: 17.0,
                             fontWeight: FontWeight.normal),
                       ).tr(),
-                    ),
+                      const Spacer(),
+                    ]),
                   ),
                 ),
               ],

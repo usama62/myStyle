@@ -44,8 +44,9 @@ class _EntryOptionState extends State<EntryOption> {
                       MaterialPageRoute(builder: (context) => const Register()),
                     );
                   },
-                  child: Center(
-                    child: const Text(
+                  child: Row(children: [
+                    const Spacer(),
+                    const Text(
                       "entry_option.register",
                       style: TextStyle(
                           fontFamily: "Product Sans",
@@ -53,7 +54,8 @@ class _EntryOptionState extends State<EntryOption> {
                           fontSize: 17.0,
                           fontWeight: FontWeight.normal),
                     ).tr(),
-                  ),
+                    const Spacer(),
+                  ]),
                 ),
               ),
               Padding(
@@ -73,8 +75,9 @@ class _EntryOptionState extends State<EntryOption> {
                       MaterialPageRoute(builder: (context) => const Login()),
                     );
                   },
-                  child: Center(
-                    child: const Text(
+                  child: Row(children: [
+                    const Spacer(),
+                    const Text(
                       "entry_option.signin",
                       style: TextStyle(
                           fontFamily: "Product Sans",
@@ -82,7 +85,8 @@ class _EntryOptionState extends State<EntryOption> {
                           fontSize: 17.0,
                           fontWeight: FontWeight.normal),
                     ).tr(),
-                  ),
+                    const Spacer(),
+                  ]),
                 ),
               ),
             ],
